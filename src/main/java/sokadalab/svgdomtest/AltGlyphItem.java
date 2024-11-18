@@ -2,8 +2,8 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class AltGlyphItem extends SVGElement {
-    AltGlyphItem(Document document) {
+public class AltGlyphItem extends SVGElement {
+    public AltGlyphItem(Document document) {
         super(document, "altGlyphItem");
     }
 }

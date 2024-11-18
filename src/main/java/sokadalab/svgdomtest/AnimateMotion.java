@@ -2,52 +2,52 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class AnimateMotion extends Animation {
-    AnimateMotion(Document document) {
+public class AnimateMotion extends Animation {
+    public AnimateMotion(Document document) {
         super(document, "animateMotion");
     }
 
-    void setCalcMode(String calcMode) {
+    public void setCalcMode(String calcMode) {
         super.setAttribute("calcMode", calcMode);
     }
 
-    void setValues(String values) {
+    public void setValues(String values) {
         super.setAttribute("values", values);
     }
 
-    void setKeyTimes(String keyTimes) {
+    public void setKeyTimes(String keyTimes) {
         super.setAttribute("keyTimes", keyTimes);
     }
 
-    void setKeySplines(String keySplines) {
+    public void setKeySplines(String keySplines) {
         super.setAttribute("keySplines", keySplines);
     }
 
-    void setFrom(String from) {
+    public void setFrom(String from) {
         super.setAttribute("from", from);
     }
 
-    void setTo(String to) {
+    public void setTo(String to) {
         super.setAttribute("to", to);
     }
 
-    void setBy(String by) {
+    public void setBy(String by) {
         super.setAttribute("by", by);
     }
 
-    void setPath(String path) {
+    public void setPath(String path) {
         super.setAttribute("path", path);
     }
 
-    void setKeyPoints(String keyPoints) {
+    public void setKeyPoints(String keyPoints) {
         super.setAttribute("keyPoints", keyPoints);
     }
 
-    void setRotate(String rotate) {
+    public void setRotate(String rotate) {
         super.setAttribute("rotate", rotate);
     }
 
-    void setOrigin(String origin) {
+    public void setOrigin(String origin) {
         super.setAttribute("origin", origin);
     }
 }

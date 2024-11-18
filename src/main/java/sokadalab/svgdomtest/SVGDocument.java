@@ -6,11 +6,11 @@ public class SVGDocument {
     private Document document;
     private SVG rootElement;
 
-    SVGDocument(Document var_document) {
+    public SVGDocument(Document var_document) {
         this.document = var_document;
     }
 
-    Document getDocument() {
+    public Document getDocument() {
         return document;
     }
 
@@ -19,268 +19,268 @@ public class SVGDocument {
     }
     
     // A.java
-    A createA() {
+    public A createA() {
         return new A(this.document);
     }
     
     // AltGlyph.java
-    AltGlyph createAltGlyph() {
+    public AltGlyph createAltGlyph() {
         return new AltGlyph(this.document);
     }
     
     // AltGlyphDef.java
-    AltGlyphDef createAltGlyphDef() {
+    public AltGlyphDef createAltGlyphDef() {
         return new AltGlyphDef(this.document);
     }
     
     // AltGlyphItem.java
-    AltGlyphItem createAltGlyphItem() {
+    public AltGlyphItem createAltGlyphItem() {
         return new AltGlyphItem(this.document);
     }
 
     // Animate.java
-    Animate createAnimate() {
+    public Animate createAnimate() {
         return new Animate(this.document);
     }
 
     // AnimateColor.java
-    AnimateColor createAnimateColor() {
+    public AnimateColor createAnimateColor() {
         return new AnimateColor(this.document);
     }
 
     // Animate.java
-    AnimateMotion createAnimateMotion() {
+    public AnimateMotion createAnimateMotion() {
         return new AnimateMotion(this.document);
     }
 
     // Animate.java
-    AnimateTransform createAnimateTransform() {
+    public AnimateTransform createAnimateTransform() {
         return new AnimateTransform(this.document);
     }
 
     // Circle.java
-    Circle createCircle() {
+    public Circle createCircle() {
         return new Circle(this.document);
     }
 
     // ClipPath.java
-    ClipPath createClipPath() {
+    public ClipPath createClipPath() {
         return new ClipPath(this.document);
     }
 
     // Cursor.java
-    Cursor createCursor() {
+    public Cursor createCursor() {
         return new Cursor(this.document);
     }
     
     // Defs.java
-    Defs createDefs() {
+    public Defs createDefs() {
         return new Defs(this.document);
     }
 
     // Desc.java
-    Desc createDesc() {
+    public Desc createDesc() {
         return new Desc(this.document);
     }
 
     // Ellipse.java
-    Ellipse createEllipse() {
+    public Ellipse createEllipse() {
         return new Ellipse(this.document);
     }
 
     // Filter.java
-    Filter createFilter() {
+    public Filter createFilter() {
         return new Filter(this.document);
     }
 
     // Font.java
-    Font createFont() {
+    public Font createFont() {
         return new Font(this.document);
     }
 
     // FontFace.java
-    FontFace createFontFace() {
+    public FontFace createFontFace() {
         return new FontFace(this.document);
     }
 
     // FontFaceFormat.java
-    FontFaceFormat createFontFaceFormat() {
+    public FontFaceFormat createFontFaceFormat() {
         return new FontFaceFormat(this.document);
     }
 
     // FontFaceName.java
-    FontFaceName createFontFaceName() {
+    public FontFaceName createFontFaceName() {
         return new FontFaceName(this.document);
     }
 
     // FontFaceSrc.java
-    FontFaceSrc createFontFaceSrc() {
+    public FontFaceSrc createFontFaceSrc() {
         return new FontFaceSrc(this.document);
     }
 
     // FontFaceUri.java
-    FontFaceUri createFontFaceUri() {
+    public FontFaceUri createFontFaceUri() {
         return new FontFaceUri(this.document);
     }
 
     // ForeignObject.java
-    ForeignObject createForeignObject() {
+    public ForeignObject createForeignObject() {
         return new ForeignObject(this.document);
     }
 
     // G.java
-    G createG() {
+    public G createG() {
         return new G(this.document);
     }
 
     // Glyph.java
-    Glyph createGlyph() {
+    public Glyph createGlyph() {
         return new Glyph(this.document);
     }
 
     // GlyphRef.java
-    GlyphRef createGlyphRef() {
+    public GlyphRef createGlyphRef() {
         return new GlyphRef(this.document);
     }
 
     // Hkern.java
-    Hkern createHkern() {
+    public Hkern createHkern() {
         return new Hkern(this.document);
     }
 
     // Image.java
-    Image createImage() {
+    public Image createImage() {
         return new Image(this.document);
     }
 
     // Line.java
-    Line createLine() {
+    public Line createLine() {
         return new Line(this.document);
     }
 
     // LinearGradient.java
-    LinearGradient createLinearGradient() {
+    public LinearGradient createLinearGradient() {
         return new LinearGradient(this.document);
     }
 
     // Marker.java
-    Marker createMarker() {
+    public Marker createMarker() {
         return new Marker(this.document);
     }
 
     // Mask.java
-    Mask createMask() {
+    public Mask createMask() {
         return new Mask(this.document);
     }
 
     // Metadata.java
-    Metadata createMetadata() {
+    public Metadata createMetadata() {
         return new Metadata(this.document);
     }
 
     // MissingGlyph.java
-    MissingGlyph createMissingGlyph() {
+    public MissingGlyph createMissingGlyph() {
         return new MissingGlyph(this.document);
     }
 
     // Path.java
-    Path createPath() {
+    public Path createPath() {
         return new Path(this.document);
     }
 
     // Pattern.java
-    Pattern createPattern() {
+    public Pattern createPattern() {
         return new Pattern(this.document);
     }
 
     // Polygon.java
-    Polygon createPolygon() {
+    public Polygon createPolygon() {
         return new Polygon(this.document);
     }
 
     // Polyline.java
-    Polyline createPolyline() {
+    public Polyline createPolyline() {
         return new Polyline(this.document);
     }
             
-   // RadialGradient.java
-    RadialGradient createRadialGradient() {
+    // RadialGradient.java
+    public RadialGradient createRadialGradient() {
         return new RadialGradient(this.document);
     }
     
     // Rect.java
-    Rect createRect() {
+    public Rect createRect() {
         return new Rect(this.document);
     }
 
     // SVG.java
-    SVG createSVG() {
+    public SVG createSVG() {
         this.rootElement = new SVG(this.document);
         return this.rootElement;
     }
     
     // Script.java
-    Script createScript() {
+    public Script createScript() {
         return new Script(this.document);
     }
 
     // Set.java
-    Set createSet() {
+    public Set createSet() {
         return new Set(this.document);
     }
 
     // Stop.java
-    Stop createStop() {
+    public Stop createStop() {
         return new Stop(this.document);
     }
 
     // Style.java
-    Style createStyle() {
+    public Style createStyle() {
         return new Style(this.document);
     }
 
     // Switch.java
-    Switch createSwitch() {
+    public Switch createSwitch() {
         return new Switch(this.document);
     }
 
     // Symbol.java
-    Symbol createSymbol() {
+    public Symbol createSymbol() {
         return new Symbol(this.document);
     }
     
     // Text.java
-    Text createText() {
+    public Text createText() {
         return new Text(this.document);
     }
 
     // TextPath.java
-    TextPath createTextPath() {
+    public TextPath createTextPath() {
         return new TextPath(this.document);
     }  
 
     // Title.java
-    Title createTitle() {
+    public Title createTitle() {
         return new Title(this.document);
     }
 
     // Tref.java
-    Tref createTref() {
+    public Tref createTref() {
         return new Tref(this.document);
     }    
 
     // Tspan.java
-    Tspan createTspan() {
+    public Tspan createTspan() {
         return new Tspan(this.document);
     }
 
     // Use.java
-    Use createUse() {
+    public Use createUse() {
         return new Use(this.document);
     }
 
     // Vkern.java
-    Vkern createVkern() {
+    public Vkern createVkern() {
         return new Vkern(this.document);
     }
 }

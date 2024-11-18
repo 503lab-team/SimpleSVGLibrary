@@ -2,15 +2,15 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class SVGAnimatedPoints extends SVGElement {
-    SVGPointList points;
+public class SVGAnimatedPoints extends SVGElement {
+    public SVGPointList points;
 
-    SVGAnimatedPoints(Document document, String name) {
+    public SVGAnimatedPoints(Document document, String name) {
         super(document, name);
         this.points = new SVGPointList();
     }
 
-    void setPoints(String points) {
+    public void setPoints(String points) {
         super.setAttribute("points", points);
     }
 }

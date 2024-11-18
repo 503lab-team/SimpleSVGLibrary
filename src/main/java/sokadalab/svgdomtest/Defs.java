@@ -2,8 +2,8 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Defs extends SVGElement{
-    Defs(Document document) {
+public class Defs extends SVGElement{
+    public Defs(Document document) {
         super(document, "defs");
     }
 }

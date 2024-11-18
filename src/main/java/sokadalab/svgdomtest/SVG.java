@@ -2,72 +2,72 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class SVG extends SVGElement{
-    private SVGLength x;
-    private SVGLength y;
-    private SVGLength width;
-    private SVGLength height;
-    private SVGRect viewport;
+public class SVG extends SVGElement{
+    private SVGLength x = new SVGLength();
+    private SVGLength y = new SVGLength();
+    private SVGLength width = new SVGLength();
+    private SVGLength height = new SVGLength();
+    private SVGRect viewport = new SVGRect();
     private float pixelUnitToMillimeterX;
     private float pixelUnitToMillimeterY;
     private float screenPixelToMillimeterX;
     private float screenPixelToMillimeterY;
-    private SVGPoint currentTranslate;
-    String contentScriptType;
-    String contentStyleType;
-    boolean useCurrentView;
-    float currentScale;
+    private SVGPoint currentTranslate = new SVGPoint();
+    private String contentScriptType;
+    private String contentStyleType;
+    private boolean useCurrentView;
+    private float currentScale;
     
-    SVG(Document document){
+    public SVG(Document document){
         super(document, "svg");
         super.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     }
 
-    void setX(String x){
+    public void setX(String x){
         super.setAttribute("x", x);
     }
-    void setX(short unitType, float value){
+    public void setX(short unitType, float value){
         this.x.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("x", this.x.getValueAsString());
     }
     
-    void setY(String y){
+    public void setY(String y){
         super.setAttribute("y", y);
     }
-    void setY(short unitType, float value){
+    public void setY(short unitType, float value){
         this.y.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("y", this.y.getValueAsString());
     }    
 
-    void setWidth(String width){
+    public void setWidth(String width){
         super.setAttribute("width", width);
     }
-    void setWidth(short unitType, float value){
+    public void setWidth(short unitType, float value){
         this.width.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("width", this.width.getValueAsString());
     }    
 
-    void setHeight(String height){
+    public void setHeight(String height){
         super.setAttribute("height", height);
     }
-    void setHeight(short unitType, float value){
+    public void setHeight(short unitType, float value){
         this.height.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("height", this.height.getValueAsString());
     }    
 
-    void setViewbox(String viewbox) {
+    public void setViewbox(String viewbox) {
         super.setAttribute("viewBox", viewbox);
     }
 
-    SVGNumber createSVGNumber(){
+    public SVGNumber createSVGNumber(){
         return new SVGNumber();
     }
 
-    SVGLength createSVGLength(){
+    public SVGLength createSVGLength(){
         return new SVGLength();
     }
     
-    SVGRect createSVGRect() {
+    public SVGRect createSVGRect() {
         return new SVGRect();
     }
 }

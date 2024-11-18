@@ -2,8 +2,8 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Text extends TextPositioningElement {
-    Text(Document document){
+public class Text extends TextPositioningElement {
+    public Text(Document document){
         super(document, "text");
     }
 }

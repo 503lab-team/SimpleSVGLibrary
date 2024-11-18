@@ -2,23 +2,23 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Script extends SVGElement {
-    String type;
+public class Script extends SVGElement {
+    private String type;
 
-    Script(Document document) {
+    public Script(Document document) {
         super(document, "script");
     }
     
-    void setType(String type) {
+    public void setType(String type) {
         this.type = type;
         super.setAttribute("type", type);
     }
     
-    void setCData(String cdata) {
+    public void setCData(String cdata) {
         
     }
 
-    void setHref(String href) {
+    public void setHref(String href) {
         super.setAttribute("href", href);
     }
 }

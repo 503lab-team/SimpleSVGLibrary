@@ -2,26 +2,26 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class TextContentElement extends SVGElement {
-    TextContentElement(Document document, String name) {
+public class TextContentElement extends SVGElement {
+    public TextContentElement(Document document, String name) {
         super(document, name);
     }
 
-    void setXmlLang(String lang) {
+    public void setXmlLang(String lang) {
         super.setAttribute("xml:lang", lang);
     }
 
-    void setXmlSpace(String space) {
+    public void setXmlSpace(String space) {
         super.setAttribute("xml:space", space);
     }
 
-    void setFontSize(String fontsize) {
+    public void setFontSize(String fontsize) {
         super.setAttribute("font-size", fontsize);
     }
-    void setFontSize(float fontsize) {
+    public void setFontSize(float fontsize) {
         super.setAttribute("font-size", Float.toString(fontsize));
     }
-    void setFontSize(int fontsize) {
+    public void setFontSize(int fontsize) {
         super.setAttribute("font-size", Integer.toString(fontsize));
     }
 }

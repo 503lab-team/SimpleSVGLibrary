@@ -3,8 +3,8 @@ package sokadalab.svgdomtest;
 import java.util.List;
 import java.util.ArrayList;
 
-class SVGLengthList extends ArrayList {
-    List<SVGLength> list = new ArrayList<SVGLength>();
+public class SVGLengthList extends ArrayList {
+    private List<SVGLength> list = new ArrayList<SVGLength>();
     private long numberOfItems;
 
     @Override
@@ -13,17 +13,17 @@ class SVGLengthList extends ArrayList {
         this.numberOfItems = 0;
     }
 
-    void initialize(SVGLength newItem) {
+    public void initialize(SVGLength newItem) {
         clear();
         this.list.add(newItem);
         this.numberOfItems = 1;
     }
 
-    SVGLength getItem(int index) {
+    public SVGLength getItem(int index) {
         return this.list.get(index);
     }
 
-    void insertItemBefore(SVGLength newItem, int index) {
+    public void insertItemBefore(SVGLength newItem, int index) {
         if (index < 0) {
             this.list.add(0, newItem);
         } else if (index < this.numberOfItems) {
@@ -34,27 +34,27 @@ class SVGLengthList extends ArrayList {
         this.numberOfItems += 1;
     }
 
-    void replaceItem(SVGLength newItem, int index) {
+    public void replaceItem(SVGLength newItem, int index) {
         removeItem(index);
         insertItemBefore(newItem, index);
     }
 
-    void removeItem(int index) {
+    public void removeItem(int index) {
         this.list.remove(index);
         this.numberOfItems -= 1;
     }
 
-    void appendItem(SVGLength newItem) {
+    public void appendItem(SVGLength newItem) {
         this.list.add(newItem);
         this.numberOfItems += 1;
     }
-    void appendItem(float value) {
+    public void appendItem(float value) {
         SVGLength newItem = new SVGLength();
         newItem.newValueSpecifiedUnit(value);
         this.list.add(newItem);
         this.numberOfItems += 1;
     }
-    void appendItem(String valueAsString) {
+    public void appendItem(String valueAsString) {
         SVGLength newItem = new SVGLength();
         newItem.newValueSpecifiedUnit(valueAsString);
         this.list.add(newItem);

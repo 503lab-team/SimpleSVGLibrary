@@ -3,39 +3,39 @@ package sokadalab.svgdomtest;
 //import java.awt.Dimension;
 //import java.awt.Toolkit;
 
-class SVGLength {
+public class SVGLength {
     // フィールドunitTypeのリスト
-    final static short TYPE_UNKNOWN = 0;    // 単位不明
-    final static short TYPE_NUMBER = 1;     // 単位なし
-    final static short TYPE_PER = 2;        // %
-    final static short TYPE_EM = 3;         // em
-    final static short TYPE_EX = 4;         // ex
-    final static short TYPE_PX = 5;         // px
-    final static short TYPE_CM = 6;         // cm
-    final static short TYPE_MM = 7;         // mm
-    final static short TYPE_IN = 8;         // in
-    final static short TYPE_PT = 9;         // pt
-    final static short TYPE_PC = 10;        // pc
+    public final static short TYPE_UNKNOWN = 0;    // 単位不明
+    public final static short TYPE_NUMBER = 1;     // 単位なし
+    public final static short TYPE_PER = 2;        // %
+    public final static short TYPE_EM = 3;         // em
+    public final static short TYPE_EX = 4;         // ex
+    public final static short TYPE_PX = 5;         // px
+    public final static short TYPE_CM = 6;         // cm
+    public final static short TYPE_MM = 7;         // mm
+    public final static short TYPE_IN = 8;         // in
+    public final static short TYPE_PT = 9;         // pt
+    public final static short TYPE_PC = 10;        // pc
     
     private String valueAsString;       // 数値 (単位あり)
     private float valueInSpecifiedUnits;// 数値 (単位なし)
     private float value;                // 数値 (ユーザ単位)
     private short unitType;             // 単位を表す値
 
-    String getValueAsString() {
+    public String getValueAsString() {
         return this.valueAsString;
     }
 
-    float getValueInSpecifiedUnits() {
+    public float getValueInSpecifiedUnits() {
         return this.valueInSpecifiedUnits;
     }
 
-    short getUnitType() {
+    public short getUnitType() {
         return this.unitType;
     }
 
     // 属性を任意の値にリセット
-    void newValueSpecifiedUnit(short unitType, float valueInSpecifiedUnits) {
+    public void newValueSpecifiedUnit(short unitType, float valueInSpecifiedUnits) {
         this.unitType = unitType;
         this.valueInSpecifiedUnits = valueInSpecifiedUnits;
         this.valueAsString = Float.toString(valueInSpecifiedUnits) + unitTypeToString();
@@ -72,13 +72,13 @@ class SVGLength {
                 this.value = this.valueInSpecifiedUnits;
         }
 */    }
-    void newValueSpecifiedUnit(float value) {
+    public void newValueSpecifiedUnit(float value) {
         this.unitType = TYPE_NUMBER;
         this.valueInSpecifiedUnits = value;
         this.valueAsString = Float.toString(value) + unitTypeToString();
         this.value = value;
     }
-    void newValueSpecifiedUnit(String valueAsString) {
+    public void newValueSpecifiedUnit(String valueAsString) {
         // 規定通りの書式であるかを判定
         if (valueAsString.matches("^\\d+\\.?\\d*.*")) {
             String str_type = valueAsString.replaceAll("^\\d+\\.?\\d*", "");
@@ -99,7 +99,7 @@ class SVGLength {
 */
 
     // unitTypeから文字列
-    String unitTypeToString() {
+    public String unitTypeToString() {
         String str;
         switch(this.unitType) {
             case TYPE_PER :
@@ -136,7 +136,7 @@ class SVGLength {
     }
 
     // 文字列からunitType
-    short stringToUnitType(String str) {
+    public short stringToUnitType(String str) {
         short type;
         switch (str) {
             case "" :

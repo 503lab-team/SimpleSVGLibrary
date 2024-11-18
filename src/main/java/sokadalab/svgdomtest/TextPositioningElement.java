@@ -2,14 +2,14 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class TextPositioningElement extends TextContentElement {
-    SVGLengthList x;
-    SVGLengthList y;
-    SVGLengthList dx;
-    SVGLengthList dy;
-    float rotate;
+public class TextPositioningElement extends TextContentElement {
+    private SVGLengthList x;
+    private SVGLengthList y;
+    private SVGLengthList dx;
+    private SVGLengthList dy;
+    private float rotate;
 
-    TextPositioningElement(Document document, String name) {
+    public TextPositioningElement(Document document, String name) {
         super(document, name);
         this.x = new SVGLengthList();
         this.y = new SVGLengthList();
@@ -17,23 +17,23 @@ class TextPositioningElement extends TextContentElement {
         this.dy = new SVGLengthList();
     }
 
-    void setX(String x) {
+    public void setX(String x) {
         super.setAttribute("x", x);
     }
 
-    void setY(String y) {
+    public void setY(String y) {
         super.setAttribute("y", y);        
     }
     
-    void setDX(String dx) {
+    public void setDX(String dx) {
         super.setAttribute("dx", dx);
     }
     
-    void setDY(String dy) {
+    public void setDY(String dy) {
         super.setAttribute("dy", dy);
     }
     
-    void setRotate(String rotate) {
+    public void setRotate(String rotate) {
         super.setAttribute("rotate", rotate);
     }
 }

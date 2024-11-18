@@ -3,7 +3,7 @@ package sokadalab.svgdomtest;
 import java.util.ArrayList;
 import java.util.List;
 
-class SVGPathSegList extends ArrayList {
+public class SVGPathSegList extends ArrayList {
     List<SVGPathSeg> list = new ArrayList<SVGPathSeg>();
     private long numberOfItems;
 
@@ -13,17 +13,17 @@ class SVGPathSegList extends ArrayList {
         this.numberOfItems = 0;
     }
 
-    void initialize(SVGPathSeg newItem) {
+    public void initialize(SVGPathSeg newItem) {
         clear();
         this.list.add(newItem);
         this.numberOfItems = 1;
     }
 
-    SVGPathSeg getItem(int index) {
+    public SVGPathSeg getItem(int index) {
         return this.list.get(index);
     }
 
-    String getAllItem() {
+    public String getAllItem() {
         String result = "";
         SVGPathSeg pathSeg = new SVGPathSeg();
         for (int i = 0; i < this.list.size(); i++) {
@@ -39,7 +39,7 @@ class SVGPathSegList extends ArrayList {
         return result;
     }
 
-    void insertItemBefore(SVGPathSeg newItem, int index) {
+    public void insertItemBefore(SVGPathSeg newItem, int index) {
         if (index < 0) {
             this.list.add(0, newItem);
         } else if (index < this.numberOfItems) {
@@ -50,21 +50,21 @@ class SVGPathSegList extends ArrayList {
         this.numberOfItems += 1;
     }
 
-    void replaceItem(SVGPathSeg newItem, int index) {
+    public void replaceItem(SVGPathSeg newItem, int index) {
         removeItem(index);
         insertItemBefore(newItem, index);
     }
 
-    void removeItem(int index) {
+    public void removeItem(int index) {
         this.list.remove(index);
         this.numberOfItems -= 1;
     }
 
-    void appendItem(SVGPathSeg newItem) {
+    public void appendItem(SVGPathSeg newItem) {
         this.list.add(newItem);
         this.numberOfItems += 1;
     }
-    void appendItem(String pathSegTypeAsLetter) {
+    public void appendItem(String pathSegTypeAsLetter) {
         SVGPathSeg newItem = new SVGPathSeg();
         newItem.pathSegTypeAsLetter = pathSegTypeAsLetter;
         this.list.add(newItem);

@@ -2,52 +2,52 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Animation extends SVGElement {
-    Animation(Document document, String name) {
+public class Animation extends SVGElement {
+    public Animation(Document document, String name) {
         super(document, name);
     }
 
-    void setHref(String href) {
+    public void setHref(String href) {
         super.setAttribute("href", href);
     }
 
-    void setAttributeName(String name) {
+    public void setAttributeName(String name) {
         super.setAttribute("attributeName", name);
     }
 
-    void setAttributeType(String type) {
+    public void setAttributeType(String type) {
         super.setAttribute("attributeType", type);
     }
 
-    void setBegin(String begin) {
+    public void setBegin(String begin) {
         super.setAttribute("begin", begin);
     }
 
-    void setDur(String dur) {
+    public void setDur(String dur) {
         super.setAttribute("dur", dur);
     }
 
-    void setEnd(String end) {
+    public void setEnd(String end) {
         super.setAttribute("end", end);
     }
 
-    void setMin(String min) {
+    public void setMin(String min) {
         super.setAttribute("min", min);
     }
 
-    void setMax(String max) {
+    public void setMax(String max) {
         super.setAttribute("max", max);
     }
 
-    void setRestart(String restart) {
+    public void setRestart(String restart) {
         super.setAttribute("restart", restart);
     }
 
-    void setRepeatCount(String repeatCount) {
+    public void setRepeatCount(String repeatCount) {
         super.setAttribute("repeatCount", repeatCount);
     }
 
-    void setRepeatDur(String repeatDur) {
+    public void setRepeatDur(String repeatDur) {
         super.setAttribute("repeatDur", repeatDur);
     }
 }

@@ -2,25 +2,25 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Hkern extends SVGElement {
-    Hkern(Document document) {
+public class Hkern extends SVGElement {
+    public Hkern(Document document) {
         super(document, "hkern");
     }
 
-    void setU1(String u1) {
+    public void setU1(String u1) {
         super.setAttribute("u1", u1);
     }
 
-    void setG1(String g1) {
+    public void setG1(String g1) {
         super.setAttribute("g1", g1);
     }
-    void setU2(String u2) {
+    public void setU2(String u2) {
         super.setAttribute("u2", u2);
     }
-    void setG2(String g2) {
+    public void setG2(String g2) {
         super.setAttribute("g2", g2);
     }
-    void setK(String k) {
+    public void setK(String k) {
         super.setAttribute("k", k);
     }
 }

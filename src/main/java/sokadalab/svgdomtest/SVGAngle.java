@@ -1,32 +1,32 @@
 package sokadalab.svgdomtest;
 
-class SVGAngle {
+public class SVGAngle {
     // フィールドunitTypeのリスト
-    final static short TYPE_UNKNOWN = 0;     // 単位不明
-    final static short TYPE_UNSPECIFIED = 1; // 単位なし
-    final static short TYPE_DEG = 2;         // 度
-    final static short TYPE_RAD = 3;         // ラジアン
-    final static short TYPE_GRAD = 4;        // グラード
+    public final static short TYPE_UNKNOWN = 0;     // 単位不明
+    public final static short TYPE_UNSPECIFIED = 1; // 単位なし
+    public final static short TYPE_DEG = 2;         // 度
+    public final static short TYPE_RAD = 3;         // ラジアン
+    public final static short TYPE_GRAD = 4;        // グラード
     
     private String valueAsString;       // 数値 (単位あり)
     private float valueInSpecifiedUnits;// 数値 (単位なし)
     private float value;                // 数値 (ユーザ単位)
     private short unitType;             // 単位を表す値
 
-    String getValueAsString() {
+    public String getValueAsString() {
         return this.valueAsString;
     }
 
-    float getValueInSpecifiedUnits() {
+    public float getValueInSpecifiedUnits() {
         return this.valueInSpecifiedUnits;
     }
 
-    short getUnitType() {
+    public short getUnitType() {
         return this.unitType;
     }
 
     // 属性を任意の値にリセット
-    void newValueSpecifiedUnit(short unitType, float valueInSpecifiedUnits) {
+    public void newValueSpecifiedUnit(short unitType, float valueInSpecifiedUnits) {
         this.unitType = unitType;
         this.valueInSpecifiedUnits = valueInSpecifiedUnits;
         this.valueAsString = Float.toString(valueInSpecifiedUnits) + unitTypeToString();
@@ -63,13 +63,13 @@ class SVGAngle {
                 this.value = this.valueInSpecifiedUnits;
         }
 */    }
-    void newValueSpecifiedUnit(float value) {
+    public void newValueSpecifiedUnit(float value) {
         this.unitType = TYPE_UNSPECIFIED;
         this.valueInSpecifiedUnits = value;
         this.valueAsString = Float.toString(value) + unitTypeToString();
         this.value = value;
     }
-    void newValueSpecifiedUnit(String valueAsString) {
+    public void newValueSpecifiedUnit(String valueAsString) {
         // 規定通りの書式であるかを判定
         if (valueAsString.matches("^\\d+\\.?\\d*.*")) {
             String str_type = valueAsString.replaceAll("^\\d+\\.?\\d*", "");
@@ -90,7 +90,7 @@ class SVGAngle {
 */
 
     // unitTypeから文字列
-    String unitTypeToString() {
+    public String unitTypeToString() {
         String str;
         switch(this.unitType) {
             case TYPE_DEG :
@@ -109,7 +109,7 @@ class SVGAngle {
     }
 
     // 文字列からunitType
-    short stringToUnitType(String str) {
+    public short stringToUnitType(String str) {
         short type;
         switch (str) {
             case "" :

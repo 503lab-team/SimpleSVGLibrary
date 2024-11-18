@@ -1,8 +1,8 @@
 package sokadalab.svgdomtest;
 
-class SVGRect {
-    float x;
-    float y;
-    float width;
-    float height;
+public class SVGRect {
+    private float x;
+    private float y;
+    private float width;
+    private float height;
 }

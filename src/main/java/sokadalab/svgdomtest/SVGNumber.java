@@ -1,6 +1,6 @@
 //ok
 package sokadalab.svgdomtest;
 
-class SVGNumber {
-    float value;
+public class SVGNumber {
+    public float value;
 }

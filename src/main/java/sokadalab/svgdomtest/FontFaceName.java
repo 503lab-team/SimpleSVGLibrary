@@ -2,12 +2,12 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class FontFaceName extends SVGElement {
-    FontFaceName(Document document) {
+public class FontFaceName extends SVGElement {
+    public FontFaceName(Document document) {
         super(document, "font-face-name");
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         super.setAttribute("name", name);
     }
 }

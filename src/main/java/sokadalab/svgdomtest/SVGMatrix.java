@@ -1,10 +1,10 @@
 package sokadalab.svgdomtest;
 
-class SVGMatrix {
-    float a;
-    float b;
-    float c;
-    float d;
-    float e;
-    float f;
+public class SVGMatrix {
+    private float a;
+    private float b;
+    private float c;
+    private float d;
+    private float e;
+    private float f;
 }

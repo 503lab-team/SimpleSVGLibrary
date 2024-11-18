@@ -2,20 +2,20 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class AltGlyph extends TextPositioningElement {
-    String glyphRef;
-    String format;
+public class AltGlyph extends TextPositioningElement {
+    private String glyphRef;
+    private String format;
 
-    AltGlyph(Document document) {
+    public AltGlyph(Document document) {
         super(document, "altGlyph");
     }
 
-    void setGlyphRef(String glyphRef) {
+    public void setGlyphRef(String glyphRef) {
         this.glyphRef = glyphRef;
         super.setAttribute("glyphRef", glyphRef);
     }
 
-    void setFormat(String format) {
+    public void setFormat(String format) {
         this.format = format;
         super.setAttribute("format", format);
     }

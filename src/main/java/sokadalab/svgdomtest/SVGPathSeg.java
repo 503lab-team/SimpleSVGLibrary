@@ -4,34 +4,34 @@ package sokadalab.svgdomtest;
 import java.util.ArrayList;
 import java.util.List;
 
-class SVGPathSeg extends ArrayList {
+public class SVGPathSeg extends ArrayList {
     // Path Segment Types
-    final static short PATHSEG_UNKNOWN = 0;
-    final static short PATHSEG_CLOSEPATH = 1;
-    final static short PATHSEG_MOVETO_ABS = 2;
-    final static short PATHSEG_MOVETO_REL = 3;
-    final static short PATHSEG_LINETO_ABS = 4;
-    final static short PATHSEG_LINETO_REL = 5;
-    final static short PATHSEG_CURVETO_CUBIC_ABS = 6;
-    final static short PATHSEG_CURVETO_CUBIC_REL = 7;
-    final static short PATHSEG_CURVETO_QUADRATIC_ABS = 8;
-    final static short PATHSEG_CURVETO_QUADRATIC_REL = 9;
-    final static short PATHSEG_ARC_ABS = 10;
-    final static short PATHSEG_ARC_REL = 11;
-    final static short PATHSEG_LINETO_HORIZONTAL_ABS = 12;
-    final static short PATHSEG_LINETO_HORIZONTAL_REL = 13;
-    final static short PATHSEG_LINETO_VERTICAL_ABS = 14;
-    final static short PATHSEG_LINETO_VERTICAL_REL = 15;
-    final static short PATHSEG_CURVETO_CUBIC_SMOOTH_ABS = 16;
-    final static short PATHSEG_CURVETO_CUBIC_SMOOTH_REL = 17;
-    final static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS = 18;
-    final static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL = 19;
+    public final static short PATHSEG_UNKNOWN = 0;
+    public final static short PATHSEG_CLOSEPATH = 1;
+    public final static short PATHSEG_MOVETO_ABS = 2;
+    public final static short PATHSEG_MOVETO_REL = 3;
+    public final static short PATHSEG_LINETO_ABS = 4;
+    public final static short PATHSEG_LINETO_REL = 5;
+    public final static short PATHSEG_CURVETO_CUBIC_ABS = 6;
+    public final static short PATHSEG_CURVETO_CUBIC_REL = 7;
+    public final static short PATHSEG_CURVETO_QUADRATIC_ABS = 8;
+    public final static short PATHSEG_CURVETO_QUADRATIC_REL = 9;
+    public final static short PATHSEG_ARC_ABS = 10;
+    public final static short PATHSEG_ARC_REL = 11;
+    public final static short PATHSEG_LINETO_HORIZONTAL_ABS = 12;
+    public final static short PATHSEG_LINETO_HORIZONTAL_REL = 13;
+    public final static short PATHSEG_LINETO_VERTICAL_ABS = 14;
+    public final static short PATHSEG_LINETO_VERTICAL_REL = 15;
+    public final static short PATHSEG_CURVETO_CUBIC_SMOOTH_ABS = 16;
+    public final static short PATHSEG_CURVETO_CUBIC_SMOOTH_REL = 17;
+    public final static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS = 18;
+    public final static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL = 19;
 
-    short pathSegType;                          // アルファベット1文字を表す数値
-    String pathSegTypeAsLetter;                 // アルファベット1文字
-    List<Float> data = new ArrayList<Float>();  // パスの数値リスト
+    public short pathSegType;                          // アルファベット1文字を表す数値
+    public String pathSegTypeAsLetter;                 // アルファベット1文字
+    public List<Float> data = new ArrayList<Float>();  // パスの数値リスト
 
-    String typeToLetter(short pathSegType) {
+    public String typeToLetter(short pathSegType) {
         switch (pathSegType) {
             case SVGPathSeg.PATHSEG_CLOSEPATH :
                 return "Z";
@@ -75,7 +75,7 @@ class SVGPathSeg extends ArrayList {
                 return "";
         }        
     }
-    short letterToType(String pathSegTypeAsLetter) {
+    public short letterToType(String pathSegTypeAsLetter) {
         switch (pathSegTypeAsLetter) {
             case "Z" :
                 return SVGPathSeg.PATHSEG_CLOSEPATH;

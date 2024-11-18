@@ -2,8 +2,8 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Title extends SVGElement {
-    Title(Document document) {
+public class Title extends SVGElement {
+    public Title(Document document) {
         super(document, "title");
     }
 }

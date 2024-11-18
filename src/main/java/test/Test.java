@@ -1,7 +1,8 @@
 // 動作確認用
 
-package sokadalab.svgdomtest;
+package test;
 
+import sokadalab.svgdomtest.*;
 import java.io.*;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -9,7 +10,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 import javax.xml.transform.dom.*;
 
-public class Svgdomtest {
+public class Test {
     public static void main(String[] args) {
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -22,7 +23,7 @@ public class Svgdomtest {
 
             Ellipse c = svgdoc.createEllipse();
             c.setCX(SVGLength.TYPE_IN, (float)10.2);
-            c.setCY(SVGLength.TYPE_PER, (float)30.5);
+            c.setCY("20.5pt");
             c.setRX(18);
             c.setRY(SVGLength.TYPE_CM, (float)0.8);
 

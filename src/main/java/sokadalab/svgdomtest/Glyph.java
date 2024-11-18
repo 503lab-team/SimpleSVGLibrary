@@ -2,48 +2,48 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Glyph extends SVGElement {
-    Glyph(Document document) {
+public class Glyph extends SVGElement {
+    public Glyph(Document document) {
         super(document, "glyph");
     }
 
-    void setD(String d) {
+    public void setD(String d) {
         super.setAttribute("d", d);
     }
 
-    void setHorizAdvX(String hax) {
+    public void setHorizAdvX(String hax) {
         super.setAttribute("horiz-adv-x", hax);
     }
 
-    void setVertOriginX(String vox) {
+    public void setVertOriginX(String vox) {
         super.setAttribute("vert-origin-x", vox);
     }
 
-    void setVertOriginY(String voy) {
+    public void setVertOriginY(String voy) {
         super.setAttribute("vert-origin-y", voy);
     }
 
-    void setVertAdvY(String vay) {
+    public void setVertAdvY(String vay) {
         super.setAttribute("vert-adv-y", vay);
     }
 
-    void setUnicode(String unicode) {
+    public void setUnicode(String unicode) {
         super.setAttribute("unicode", unicode);
     }
 
-    void setGlyphName(String glyphName) {
+    public void setGlyphName(String glyphName) {
         super.setAttribute("glyph-name", glyphName);
     }
 
-    void setOrientation(String orientation) {
+    public void setOrientation(String orientation) {
         super.setAttribute("orientation", orientation);
     }
 
-    void setArabicForm(String arabicForm) {
+    public void setArabicForm(String arabicForm) {
         super.setAttribute("arabic-form", arabicForm);
     }
 
-    void setLang(String lang) {
+    public void setLang(String lang) {
         super.setAttribute("lang", lang);
     }
 }

@@ -2,20 +2,20 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-class Style extends SVGElement {
-    Style(Document document) {
+public class Style extends SVGElement {
+    public Style(Document document) {
         super(document, "style");
     }
 
-    void setType(String type) {
+    public void setType(String type) {
         super.setAttribute("type", type);
     }
 
-    void setMedia(String media) {
+    public void setMedia(String media) {
         super.setAttribute("media", media);
     }
 
-    void setTitle(String title) {
+    public void setTitle(String title) {
         super.setAttribute("title", title);
     }
 }

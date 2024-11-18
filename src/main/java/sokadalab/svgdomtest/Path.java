@@ -3,16 +3,16 @@ package sokadalab.svgdomtest;
 import org.w3c.dom.Document;
 import java.util.regex.Pattern;
 
-class Path extends SVGElement {
-    SVGPathSegList d;
+public class Path extends SVGElement {
+    private SVGPathSegList d;
 
-    Path(Document document) {
+    public Path(Document document) {
         super(document, "path");
         this.d = new SVGPathSegList();
     }
 
     // <path>の属性dの中身をすべてstrに書き直す
-    void setD(String str) {
+    public void setD(String str) {
         Pattern p = Pattern.compile("[Z,z,M,m,L,l,C,c,Q,q,A,a,H,h,V,v,S,s,T,t]");
         while (str == "") {
             if (str.substring(0, 1) == " ") {
@@ -30,7 +30,7 @@ class Path extends SVGElement {
     }
 
     // <path>の属性dの末尾に新しいデータを追加する
-    void appendD(String type, String data) {
+    public void appendD(String type, String data) {
         SVGPathSeg newItem = new SVGPathSeg();
         newItem.pathSegTypeAsLetter = type;
         newItem.pathSegType = newItem.letterToType(newItem.pathSegTypeAsLetter);
@@ -49,7 +49,7 @@ class Path extends SVGElement {
         this.d.appendItem(newItem);
         super.setAttribute("d", this.d.getAllItem());
     }
-    void appendD(short type, String data) {
+    public void appendD(short type, String data) {
         SVGPathSeg newItem = new SVGPathSeg();
         newItem.pathSegTypeAsLetter = newItem.typeToLetter(type);
         newItem.pathSegType = newItem.letterToType(newItem.pathSegTypeAsLetter);
@@ -68,7 +68,7 @@ class Path extends SVGElement {
         this.d.appendItem(newItem);        
         super.setAttribute("d", this.d.getAllItem());
     }
-    void appendD(String str) {
+    public void appendD(String str) {
         SVGPathSeg newItem = new SVGPathSeg();
         newItem.pathSegTypeAsLetter = str.substring(0, 1);
         newItem.pathSegType = newItem.letterToType(newItem.pathSegTypeAsLetter);
