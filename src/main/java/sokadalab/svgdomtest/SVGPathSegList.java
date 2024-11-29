@@ -1,3 +1,5 @@
+// <path>要素の属性d
+
 package sokadalab.svgdomtest;
 
 import java.util.ArrayList;
@@ -19,15 +21,17 @@ public class SVGPathSegList extends ArrayList {
         this.numberOfItems = 1;
     }
 
+    // 指定の位置の要素を返す
     public SVGPathSeg getItem(int index) {
         return this.list.get(index);
     }
 
+    // 要素のすべてを返す
     public String getAllItem() {
         String result = "";
         SVGPathSeg pathSeg = new SVGPathSeg();
         for (int i = 0; i < this.list.size(); i++) {
-            pathSeg = this.list.get(i);
+            pathSeg = getItem(i);
             result = result + pathSeg.pathSegTypeAsLetter;
             for (int j = 0; j < pathSeg.size(); j++) {
                 result = " " + result + pathSeg.data.get(i);
@@ -39,6 +43,7 @@ public class SVGPathSegList extends ArrayList {
         return result;
     }
 
+    // 指定の位置に挿入
     public void insertItemBefore(SVGPathSeg newItem, int index) {
         if (index < 0) {
             this.list.add(0, newItem);
@@ -50,16 +55,19 @@ public class SVGPathSegList extends ArrayList {
         this.numberOfItems += 1;
     }
 
+    // 要素の置き換え
     public void replaceItem(SVGPathSeg newItem, int index) {
         removeItem(index);
         insertItemBefore(newItem, index);
     }
 
+    // 指定の位置の要素を削除
     public void removeItem(int index) {
         this.list.remove(index);
         this.numberOfItems -= 1;
     }
 
+    // 末尾に追加
     public void appendItem(SVGPathSeg newItem) {
         this.list.add(newItem);
         this.numberOfItems += 1;

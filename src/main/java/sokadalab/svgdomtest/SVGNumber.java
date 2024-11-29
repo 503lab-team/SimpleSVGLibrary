@@ -1,4 +1,5 @@
-//ok
+// 作っただけで使ってない
+
 package sokadalab.svgdomtest;
 
 public class SVGNumber {

@@ -1,8 +1,5 @@
 package sokadalab.svgdomtest;
 
-//import java.awt.Dimension;
-//import java.awt.Toolkit;
-
 public class SVGLength {
     // フィールドunitTypeのリスト
     public final static short TYPE_UNKNOWN = 0;    // 単位不明
@@ -19,7 +16,6 @@ public class SVGLength {
     
     private String valueAsString;       // 数値 (単位あり)
     private float valueInSpecifiedUnits;// 数値 (単位なし)
-    private float value;                // 数値 (ユーザ単位)
     private short unitType;             // 単位を表す値
 
     public String getValueAsString() {
@@ -38,70 +34,36 @@ public class SVGLength {
     public void newValueSpecifiedUnit(short unitType, float valueInSpecifiedUnits) {
         this.unitType = unitType;
         this.valueInSpecifiedUnits = valueInSpecifiedUnits;
-        this.valueAsString = Float.toString(valueInSpecifiedUnits) + unitTypeToString();
-/*        float dpi = getDPI();
-        switch(this.unitType) {
-            case TYPE_PER :
-                str = "%";
-                break;
-            case TYPE_EM :
-                str = "em";
-                break;
-            case TYPE_EX :
-                str = "ex";
-                break;
-            case TYPE_PX :
-                str = "px";
-                break;
-            case TYPE_CM :
-                this.value = this.valueInSpecifiedUnits * dpi / (float)2.54;
-                break;
-            case TYPE_MM :
-                this.value = this.valueInSpecifiedUnits * dpi / (float)25.4;
-                break;
-            case TYPE_PT :
-                str = "pt";
-                break;
-            case TYPE_PC :
-                str = "pc";
-                break;
-            case TYPE_IN :
-                this.value = this.valueInSpecifiedUnits * dpi;
-                break;
-            default :
-                this.value = this.valueInSpecifiedUnits;
-        }
-*/    }
+        this.valueAsString = Float.toString(this.valueInSpecifiedUnits) + unitTypeToString(this.unitType);
+    }
     public void newValueSpecifiedUnit(float value) {
         this.unitType = TYPE_NUMBER;
         this.valueInSpecifiedUnits = value;
-        this.valueAsString = Float.toString(value) + unitTypeToString();
-        this.value = value;
+        this.valueAsString = Float.toString(this.valueInSpecifiedUnits);
+    }
+    public void newValueSpecifiedUnit(int value) {
+        this.unitType = TYPE_NUMBER;
+        this.valueInSpecifiedUnits = value;
+        this.valueAsString = Float.toString(this.valueInSpecifiedUnits);
     }
     public void newValueSpecifiedUnit(String valueAsString) {
         // 規定通りの書式であるかを判定
-        if (valueAsString.matches("^\\d+\\.?\\d*.*")) {
-            String str_type = valueAsString.replaceAll("^\\d+\\.?\\d*", "");
+        if (valueAsString.matches("\\d+\\.?\\d*.*")) {
+            String str_type = valueAsString.replaceAll("\\d+\\.?\\d*", "");
             String str_value = valueAsString.replaceAll(str_type, "");
             this.unitType = stringToUnitType(str_type);
             this.valueInSpecifiedUnits = Float.parseFloat(str_value);
-            this.valueAsString = valueAsString;
+            if (this.unitType == TYPE_UNKNOWN) {
+                this.valueAsString = str_value;
+            } else {
+                this.valueAsString = valueAsString;
+            }
         }
     }
 
-    /*    // 数値の単位のみを変更する
-    void convertToSpecifiedUnits(short unitType) {
-        this.unitType = unitType;
-        // 解像度に合わせた値に変換したい
-        this.valueAsString = String.valueOf(this.value);
-
-    }
-*/
-
-    // unitTypeから文字列
-    public String unitTypeToString() {
+    public static String unitTypeToString(short type) {
         String str;
-        switch(this.unitType) {
+        switch(type) {
             case TYPE_PER :
                 str = "%";
                 break;
@@ -135,8 +97,7 @@ public class SVGLength {
         return str;
     }
 
-    // 文字列からunitType
-    public short stringToUnitType(String str) {
+    public static short stringToUnitType(String str) {
         short type;
         switch (str) {
             case "" :
@@ -174,14 +135,4 @@ public class SVGLength {
         }
         return type;
     }
-    
-/*    // dpiを取得
-    float getDPI() {
-        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-        double width = (double) size.getWidth();
-        double height = (double) size.getHeight();
-        float dpi = (float)Math.sqrt(width*width+height*width);
-        return dpi;
-    }
-*/
 }

@@ -3,8 +3,9 @@
 package test;
 
 import sokadalab.svgdomtest.*;
+
 import java.io.*;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
@@ -17,20 +18,34 @@ public class Test {
             Document document = builder.newDocument();
             SVGDocument svgdoc = new SVGDocument(document);
             SVG svg = svgdoc.createSVG();
-            svg.setWidth("1000");
-            svg.setHeight("600");
+            svg.setWidth("2000");
+            svg.setHeight("1600");
             svgdoc.appendChild(svg);
 
-            Ellipse c = svgdoc.createEllipse();
-            c.setCX(SVGLength.TYPE_IN, (float)10.2);
-            c.setCY("20.5pt");
-            c.setRX(18);
-            c.setRY(SVGLength.TYPE_CM, (float)0.8);
+            Title title = svgdoc.createTitle();
+            svg.appendChild(title);
+            title.setTextNode(document, "SimpleSVGLibrary");
 
-            c.setStroke("blue");
-            c.setStrokeWidth((float)3.8);
-            c.setFill("none");
-            svg.appendChild(c);
+            LinearGradient linear = svgdoc.createLinearGradient();
+            svg.appendChild(linear);
+            linear.setId("linear");
+
+                Stop stop1 = svgdoc.createStop();
+                linear.appendChild(stop1);
+                stop1.setOffset("5%");
+                stop1.setStopColor("yellow");
+
+                Stop stop2 = svgdoc.createStop();
+                linear.appendChild(stop2);
+                stop2.setOffset("95%");
+                stop2.setStopColor("green");
+
+            Circle circle = svgdoc.createCircle();
+            svg.appendChild(circle);
+            circle.setCX("200");
+            circle.setCY(300);
+            circle.setR(SVGLength.TYPE_PX, 100);
+            circle.setFill("url('#linear')");
 
             Transformer transformer
                     = TransformerFactory.newInstance().newTransformer();

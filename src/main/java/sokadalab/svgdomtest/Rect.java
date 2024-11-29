@@ -1,24 +1,43 @@
-//ok
+// <rect>要素
+
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
 public class Rect extends SVGElement{
-    private SVGLength x;
-    private SVGLength y;
-    private SVGLength width;
-    private SVGLength height;
-    private SVGLength rx;
-    private SVGLength ry;
+    private SVGLength x = new SVGLength();
+    private SVGLength y = new SVGLength();
+    private SVGLength width = new SVGLength();
+    private SVGLength height = new SVGLength();
+    private SVGLength rx = new SVGLength();
+    private SVGLength ry = new SVGLength();
 
     public Rect(Document document){
         super(document, "rect");
-        this.x = new SVGLength();
-        this.y = new SVGLength();
-        this.width = new SVGLength();
-        this.height = new SVGLength();
-        this.rx = new SVGLength();
-        this.ry = new SVGLength();
+    }
+
+    public SVGLength getX() {
+        return this.x;
+    }
+
+    public SVGLength getY() {
+        return this.y;
+    }
+
+    public SVGLength getWidth() {
+        return this.width;
+    }
+
+    public SVGLength getHeight() {
+        return this.height;
+    }
+
+    public SVGLength getRX() {
+        return this.rx;
+    }
+
+    public SVGLength getRY() {
+        return this.ry;
     }
 
     public void setX(String x){
@@ -29,12 +48,16 @@ public class Rect extends SVGElement{
         this.x.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("x", this.x.getValueAsString());
     }
-    public void setX(float value) {
-        this.x.newValueSpecifiedUnit(value);
+    public void setX(float x) {
+        this.x.newValueSpecifiedUnit(x);
         super.setAttribute("x", this.x.getValueAsString());
     }
-    public void setX(int value) {
-        this.x.newValueSpecifiedUnit(value);
+    public void setX(int x) {
+        this.x.newValueSpecifiedUnit(x);
+        super.setAttribute("x", this.x.getValueAsString());
+    }
+    public void setX(SVGLength x) {
+        this.x = x;
         super.setAttribute("x", this.x.getValueAsString());
     }
     
@@ -46,12 +69,16 @@ public class Rect extends SVGElement{
         this.y.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("y", this.y.getValueAsString());
     }
-    public void setY(float value){
-        this.y.newValueSpecifiedUnit(value);
+    public void setY(float y){
+        this.y.newValueSpecifiedUnit(y);
         super.setAttribute("y", this.y.getValueAsString());
     }
-    public void setY(int value){
-        this.y.newValueSpecifiedUnit(value);
+    public void setY(int y){
+        this.y.newValueSpecifiedUnit(y);
+        super.setAttribute("y", this.y.getValueAsString());
+    }
+    public void setY(SVGLength y){
+        this.y = y;
         super.setAttribute("y", this.y.getValueAsString());
     }
 
@@ -63,14 +90,18 @@ public class Rect extends SVGElement{
         this.width.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("width", this.width.getValueAsString());
     }    
-    public void setWidth(float value){
-        this.width.newValueSpecifiedUnit(value);
+    public void setWidth(float width){
+        this.width.newValueSpecifiedUnit(width);
         super.setAttribute("width", this.width.getValueAsString());
     }    
-    public void setWidth(int value){
-        this.width.newValueSpecifiedUnit(value);
+    public void setWidth(int width){
+        this.width.newValueSpecifiedUnit(width);
         super.setAttribute("width", this.width.getValueAsString());
-    }    
+    }
+    public void setWidth(SVGLength width) {
+        this.width = width;
+        super.setAttribute("width", this.width.getValueAsString());
+    }
 
     public void setHeight(String height){
         this.height.newValueSpecifiedUnit(height);
@@ -80,14 +111,18 @@ public class Rect extends SVGElement{
         this.height.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("height", this.height.getValueAsString());
     }    
-    public void setHeight(float value){
-        this.height.newValueSpecifiedUnit(value);
+    public void setHeight(float height){
+        this.height.newValueSpecifiedUnit(height);
         super.setAttribute("height", this.height.getValueAsString());
     }    
-    public void setHeight(int value){
-        this.height.newValueSpecifiedUnit(value);
+    public void setHeight(int height){
+        this.height.newValueSpecifiedUnit(height);
         super.setAttribute("height", this.height.getValueAsString());
-    }    
+    }
+    public void setHeight(SVGLength height) {
+        this.height = height;
+        super.setAttribute("height", this.height.getValueAsString());
+    }
 
     public void setRX(String rx) {
         this.rx.newValueSpecifiedUnit(rx);
@@ -97,14 +132,18 @@ public class Rect extends SVGElement{
         this.rx.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("rx", this.rx.getValueAsString());
     }    
-    public void setRX(float value){
-        this.rx.newValueSpecifiedUnit(value);
+    public void setRX(float rx){
+        this.rx.newValueSpecifiedUnit(rx);
         super.setAttribute("rx", this.rx.getValueAsString());
     }    
-    public void setRX(int value){
-        this.rx.newValueSpecifiedUnit(value);
+    public void setRX(int rx){
+        this.rx.newValueSpecifiedUnit(rx);
         super.setAttribute("rx", this.rx.getValueAsString());
-    }    
+    }
+    public void setRX(SVGLength rx) {
+        this.rx = rx;
+        super.setAttribute("rx", this.rx.getValueAsString());
+    }
 
     public void setRY(String ry) {
         this.ry.newValueSpecifiedUnit(ry);
@@ -114,12 +153,16 @@ public class Rect extends SVGElement{
         this.ry.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("ry", this.ry.getValueAsString());
     }    
-    public void setRY(float value){
-        this.ry.newValueSpecifiedUnit(value);
+    public void setRY(float ry){
+        this.ry.newValueSpecifiedUnit(ry);
         super.setAttribute("ry", this.ry.getValueAsString());
     }    
-    public void setRY(int value){
-        this.ry.newValueSpecifiedUnit(value);
+    public void setRY(int ry){
+        this.ry.newValueSpecifiedUnit(ry);
         super.setAttribute("ry", this.ry.getValueAsString());
-    }    
+    }
+    public void setRY(SVGLength ry) {
+        this.ry = ry;
+        super.setAttribute("ry", this.ry.getValueAsString());
+    }
 }

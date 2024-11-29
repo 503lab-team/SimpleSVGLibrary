@@ -1,49 +1,206 @@
+// <glyph>要素
+
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
+import java.util.regex.Pattern;
 
 public class Glyph extends SVGElement {
+    private SVGPathSegList d = new SVGPathSegList();
+    private float horizAdvX;
+    private float vertOriginX;
+    private float vertOriginY;
+    private float vertAdvY;
+    private String unicode;
+    private String glyphName;
+    private String orientation;
+    private String arabicForm;
+    private String lang;
+
     public Glyph(Document document) {
         super(document, "glyph");
     }
 
-    public void setD(String d) {
-        super.setAttribute("d", d);
+    public SVGPathSegList getD() {
+        return this.d;
+    }
+
+    public float getHorizAdvX() {
+        return this.horizAdvX;
+    }
+
+    public float getVertOriginX() {
+        return this.vertOriginX;
+    }
+
+    public float getVertOriginY() {
+        return this.vertOriginY;
+    }
+
+    public float getVertAdvY() {
+        return this.vertAdvY;
+    }
+
+    public String getUnicode() {
+        return this.unicode;
+    }
+
+    public String getGlyphName() {
+        return this.glyphName;
+    }
+
+    public String getOrientation() {
+        return this.orientation;
+    }
+
+    public String getArabicForm() {
+        return this.arabicForm;
+    }
+
+    public String getLang() {
+        return this.lang;
+    }
+
+    // 属性dの中身をすべてstrに書き直す
+    public void setD(String str) {
+        Pattern p = Pattern.compile("[Z,z,M,m,L,l,C,c,Q,q,A,a,H,h,V,v,S,s,T,t]");
+        while (str != "") {
+            switch (str.substring(0, 1)) {
+                case " " :
+                    str = str.substring(1);
+                case "," :
+                    str = str.substring(1);
+                default :
+                    String first = str.substring(0, 1); // 最初の1文字
+                    String second = str.substring(1);   // 残りの文字列
+                    String[] data = p.split(second, 2);
+                    appendD(first, data[0]);
+                    setD(data[1]);
+            }
+        }
+    }
+
+    // 属性dの末尾に新しいデータを追加する
+    public void appendD(String type, String data) {
+        SVGPathSeg newItem = new SVGPathSeg();
+        newItem.pathSegTypeAsLetter = type;
+        newItem.pathSegType = SVGPathSeg.letterToType(newItem.pathSegTypeAsLetter);
+        Pattern p = Pattern.compile("\\s");    // 空白文字 (できればカンマ区切りも追加したい)
+        while(data == "") {
+            switch (data.substring(0, 1)) {
+                case " " :
+                    data = data.substring(1);
+                case "," :
+                    data = data.substring(1);
+                default :
+                    String[] first = p.split(data, 2);
+                    newItem.data.add(Float.parseFloat(first[0]));
+                    data = first[1];
+            }
+        }
+        this.d.appendItem(newItem);
+        super.setAttribute("d", this.d.getAllItem());
+    }
+    public void appendD(short type, String data) {
+        SVGPathSeg newItem = new SVGPathSeg();
+        newItem.pathSegTypeAsLetter = SVGPathSeg.typeToLetter(type);
+        newItem.pathSegType = SVGPathSeg.letterToType(newItem.pathSegTypeAsLetter);
+        Pattern p = Pattern.compile("\\s");    // 空白文字 (できればカンマ区切りも追加したい)
+        while(data == "") {
+            switch (data.substring(0, 1)) {
+                case " " :
+                    data = data.substring(1);
+                case "," :
+                    data = data.substring(1);
+                default :
+                    String[] first = p.split(data, 2);
+                    newItem.data.add(Float.parseFloat(first[0]));
+                    data = first[1];
+            }
+        }
+        this.d.appendItem(newItem);        
+        super.setAttribute("d", this.d.getAllItem());
+    }
+    public void appendD(String str) {
+        SVGPathSeg newItem = new SVGPathSeg();
+        newItem.pathSegTypeAsLetter = str.substring(0, 1);
+        newItem.pathSegType = SVGPathSeg.letterToType(newItem.pathSegTypeAsLetter);
+        Pattern p = Pattern.compile("\\s");    // 空白文字 (できればカンマ区切りも追加したい)
+        String data = str.substring(1);
+        while (str == "") {
+            switch (data.substring(0, 1)) {
+                case " " :
+                    data = data.substring(1);
+                case "," :
+                    data = data.substring(1);
+                default :
+                    String[] first = p.split(data, 2);
+                    newItem.data.add(Float.parseFloat(first[0]));
+                    data = first[1];
+            }
+        }
+        this.d.appendItem(newItem);
+        super.setAttribute("d", this.d.getAllItem());
     }
 
     public void setHorizAdvX(String hax) {
-        super.setAttribute("horiz-adv-x", hax);
+        this.horizAdvX = Float.parseFloat(hax);
+        super.setAttribute("horiz-adv-x", String.valueOf(this.horizAdvX));
+    }
+    public void setHorizAdvX(float hax) {
+        this.horizAdvX = hax;
+        super.setAttribute("horiz-adv-x", String.valueOf(this.horizAdvX));
     }
 
     public void setVertOriginX(String vox) {
-        super.setAttribute("vert-origin-x", vox);
+        this.vertOriginX = Float.parseFloat(vox);
+        super.setAttribute("vert-origin-x", String.valueOf(this.vertOriginX));
+    }
+    public void setVertOriginX(float vox) {
+        this.vertOriginX = vox;
+        super.setAttribute("vert-origin-x", String.valueOf(this.vertOriginX));
     }
 
     public void setVertOriginY(String voy) {
-        super.setAttribute("vert-origin-y", voy);
+        this.vertOriginY = Float.parseFloat(voy);
+        super.setAttribute("vert-origin-y", String.valueOf(this.vertOriginY));
+    }
+    public void setVertOriginY(float voy) {
+        this.vertOriginY = voy;
+        super.setAttribute("vert-origin-y", String.valueOf(this.vertOriginY));
     }
 
     public void setVertAdvY(String vay) {
-        super.setAttribute("vert-adv-y", vay);
+        this.vertAdvY = Float.parseFloat(vay);
+        super.setAttribute("vert-adv-y", String.valueOf(this.vertAdvY));
+    }
+    public void setVertAdvY(float vay) {
+        this.vertAdvY = vay;
+        super.setAttribute("vert-adv-y", String.valueOf(this.vertAdvY));
     }
 
     public void setUnicode(String unicode) {
-        super.setAttribute("unicode", unicode);
+        this.unicode = unicode;
+        super.setAttribute("unicode", this.unicode);
     }
 
     public void setGlyphName(String glyphName) {
-        super.setAttribute("glyph-name", glyphName);
+        this.glyphName = glyphName;
+        super.setAttribute("glyph-name", this.glyphName);
     }
 
     public void setOrientation(String orientation) {
-        super.setAttribute("orientation", orientation);
+        this.orientation = orientation;
+        super.setAttribute("orientation", this.orientation);
     }
 
     public void setArabicForm(String arabicForm) {
-        super.setAttribute("arabic-form", arabicForm);
+        this.arabicForm = arabicForm;
+        super.setAttribute("arabic-form", this.arabicForm);
     }
 
     public void setLang(String lang) {
-        super.setAttribute("lang", lang);
+        this.lang = lang;
+        super.setAttribute("lang", this.lang);
     }
 }

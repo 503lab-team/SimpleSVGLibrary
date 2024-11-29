@@ -1,3 +1,5 @@
+// 座標を表す
+
 package sokadalab.svgdomtest;
 
 public class SVGPoint {

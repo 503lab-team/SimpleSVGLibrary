@@ -1,4 +1,5 @@
-//ok
+// <path>要素の属性dのコマンド1組
+
 package sokadalab.svgdomtest;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class SVGPathSeg extends ArrayList {
     public String pathSegTypeAsLetter;                 // アルファベット1文字
     public List<Float> data = new ArrayList<Float>();  // パスの数値リスト
 
-    public String typeToLetter(short pathSegType) {
+    public static String typeToLetter(short pathSegType) {
         switch (pathSegType) {
             case SVGPathSeg.PATHSEG_CLOSEPATH :
                 return "Z";
@@ -75,7 +76,7 @@ public class SVGPathSeg extends ArrayList {
                 return "";
         }        
     }
-    public short letterToType(String pathSegTypeAsLetter) {
+    public static short letterToType(String pathSegTypeAsLetter) {
         switch (pathSegTypeAsLetter) {
             case "Z" :
                 return SVGPathSeg.PATHSEG_CLOSEPATH;

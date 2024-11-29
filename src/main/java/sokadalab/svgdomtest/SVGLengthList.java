@@ -19,10 +19,23 @@ public class SVGLengthList extends ArrayList {
         this.numberOfItems = 1;
     }
 
+    // 指定の位置の要素を返す
     public SVGLength getItem(int index) {
         return this.list.get(index);
     }
 
+    // 要素のすべてを返す
+    public String getAllItem() {
+        String result = "";
+        SVGLength length = new SVGLength();
+        for (int i = 0; i < this.list.size(); i++) {
+            length = getItem(i);
+            result = result + length.getValueAsString() + " ";
+        }
+        return result;
+    }
+
+    // 指定の位置に挿入
     public void insertItemBefore(SVGLength newItem, int index) {
         if (index < 0) {
             this.list.add(0, newItem);
@@ -34,16 +47,19 @@ public class SVGLengthList extends ArrayList {
         this.numberOfItems += 1;
     }
 
+    // 要素の置き換え
     public void replaceItem(SVGLength newItem, int index) {
         removeItem(index);
         insertItemBefore(newItem, index);
     }
 
+    // 指定の位置の要素を削除
     public void removeItem(int index) {
         this.list.remove(index);
         this.numberOfItems -= 1;
     }
 
+    // 末尾に追加
     public void appendItem(SVGLength newItem) {
         this.list.add(newItem);
         this.numberOfItems += 1;

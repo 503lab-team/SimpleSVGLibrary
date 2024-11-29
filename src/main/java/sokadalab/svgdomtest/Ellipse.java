@@ -1,20 +1,33 @@
-//ok
+// <ellipse>要素
+
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
 public class Ellipse extends SVGElement {
-    private SVGLength cx;
-    private SVGLength cy;
-    private SVGLength rx;
-    private SVGLength ry;
+    private SVGLength cx = new SVGLength();
+    private SVGLength cy = new SVGLength();
+    private SVGLength rx = new SVGLength();
+    private SVGLength ry = new SVGLength();
 
     public Ellipse(Document document) {
         super(document, "ellipse");
-        this.cx = new SVGLength();
-        this.cy = new SVGLength();
-        this.rx = new SVGLength();
-        this.ry = new SVGLength();
+    }
+
+    public SVGLength getCX() {
+        return this.cx;
+    }
+
+    public SVGLength getCY() {
+        return this.cy;
+    }
+
+    public SVGLength getRX() {
+        return this.rx;
+    }
+
+    public SVGLength getRY() {
+        return this.ry;
     }
 
     public void setCX(String cx) {
@@ -25,12 +38,16 @@ public class Ellipse extends SVGElement {
         this.cx.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("cx", this.cx.getValueAsString());
     }
-    public void setCX(float value) {
-        this.cx.newValueSpecifiedUnit(value);
+    public void setCX(float cx) {
+        this.cx.newValueSpecifiedUnit(cx);
         super.setAttribute("cx", this.cx.getValueAsString());        
     }
-    public void setCX(int value) {
-        this.cx.newValueSpecifiedUnit(value);
+    public void setCX(int cx) {
+        this.cx.newValueSpecifiedUnit(cx);
+        super.setAttribute("cx", this.cx.getValueAsString());        
+    }
+    public void setCX(SVGLength cx) {
+        this.cx = cx;
         super.setAttribute("cx", this.cx.getValueAsString());        
     }
 
@@ -42,12 +59,16 @@ public class Ellipse extends SVGElement {
         this.cy.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("cy", this.cy.getValueAsString());
     }
-    public void setCY(float value) {
-        this.cy.newValueSpecifiedUnit(value);
+    public void setCY(float cy) {
+        this.cy.newValueSpecifiedUnit(cy);
         super.setAttribute("cy", this.cy.getValueAsString());        
     }
-    public void setCY(int value) {
-        this.cy.newValueSpecifiedUnit(value);
+    public void setCY(int cy) {
+        this.cy.newValueSpecifiedUnit(cy);
+        super.setAttribute("cy", this.cy.getValueAsString());        
+    }
+    public void setCY(SVGLength cy) {
+        this.cy = cy;
         super.setAttribute("cy", this.cy.getValueAsString());        
     }
 
@@ -59,12 +80,16 @@ public class Ellipse extends SVGElement {
         this.rx.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("rx", this.rx.getValueAsString());
     }
-    public void setRX(float value) {
-        this.rx.newValueSpecifiedUnit(value);
+    public void setRX(float rx) {
+        this.rx.newValueSpecifiedUnit(rx);
         super.setAttribute("rx", this.rx.getValueAsString());        
     }
-    public void setRX(int value) {
-        this.rx.newValueSpecifiedUnit(value);
+    public void setRX(int rx) {
+        this.rx.newValueSpecifiedUnit(rx);
+        super.setAttribute("rx", this.rx.getValueAsString());        
+    }
+    public void setRX(SVGLength rx) {
+        this.rx = rx;
         super.setAttribute("rx", this.rx.getValueAsString());        
     }
 
@@ -76,12 +101,16 @@ public class Ellipse extends SVGElement {
         this.ry.newValueSpecifiedUnit(unitType, value);
         super.setAttribute("ry", this.ry.getValueAsString());
     }
-    public void setRY(float value) {
-        this.ry.newValueSpecifiedUnit(value);
+    public void setRY(float ry) {
+        this.ry.newValueSpecifiedUnit(ry);
         super.setAttribute("ry", this.ry.getValueAsString());        
     }
-    public void setRY(int value) {
-        this.ry.newValueSpecifiedUnit(value);
+    public void setRY(int ry) {
+        this.ry.newValueSpecifiedUnit(ry);
+        super.setAttribute("ry", this.ry.getValueAsString());        
+    }
+    public void setRY(SVGLength ry) {
+        this.ry = ry;
         super.setAttribute("ry", this.ry.getValueAsString());        
     }
 }

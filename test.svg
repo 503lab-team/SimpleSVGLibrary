@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" height="600" width="1000"><ellipse cx="10.2in" cy="20.5pt" fill="none" rx="18.0" ry="0.8cm" stroke="blue" stroke-width="3.8"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" height="1600" width="2000"><title>SimpleSVGLibrary</title><linearGradient id="linear"><stop offset="5%" stop-color="yellow"/><stop offset="95%" stop-color="green"/></linearGradient><circle cx="200" cy="300.0" fill="url('#linear')" r="150.0px"/></svg>

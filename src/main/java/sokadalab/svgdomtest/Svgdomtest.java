@@ -20,17 +20,6 @@ public class Svgdomtest {
             svg.setHeight("600");
             svgdoc.appendChild(svg);
 
-            Ellipse c = svgdoc.createEllipse();
-            c.setCX(SVGLength.TYPE_IN, (float)10.2);
-            c.setCY(SVGLength.TYPE_PER, (float)30.5);
-            c.setRX(18);
-            c.setRY(SVGLength.TYPE_CM, (float)0.8);
-
-            c.setStroke("blue");
-            c.setStrokeWidth((float)3.8);
-            c.setFill("none");
-            svg.appendChild(c);
-
             Transformer transformer
                     = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
