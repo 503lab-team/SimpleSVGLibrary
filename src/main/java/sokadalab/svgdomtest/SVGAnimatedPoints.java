@@ -2,14 +2,26 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
+/**
+ * Polygon、Polylineの基本となるクラス<br>
+ * https://www.w3.org/TR/SVG11/shapes.html#InterfaceSVGAnimatedPoints
+ */
 public class SVGAnimatedPoints extends SVGElement {
     public SVGPointList points = new SVGPointList();
 
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     * @param name 要素名
+     */
     public SVGAnimatedPoints(Document document, String name) {
         super(document, name);
     }
 
-    // フィールドのpointsを引数の内容に書き直す
+    /**
+     * フィールドpointsをすべて書き直す
+     * @param points フィールドpointsに与える値
+     */
     public void setPoints(SVGPointList points) {
         this.points.clear();
         this.points = points;
@@ -42,7 +54,11 @@ public class SVGAnimatedPoints extends SVGElement {
         super.setAttribute("points", this.points.getAllItem());
     }
 
-    // フィールドのpointsの末尾に追加
+    /**
+     * 末尾に追加
+     * @param x x座標
+     * @param y y座標
+     */
     public void appendPoints(String x, String y) {
         this.points.appendItem(x, y);
         super.setAttribute("points", this.points.getAllItem());

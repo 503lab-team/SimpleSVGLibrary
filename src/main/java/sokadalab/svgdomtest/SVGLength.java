@@ -1,5 +1,10 @@
 package sokadalab.svgdomtest;
 
+/**
+ * 長さや距離を表す<br>
+ * https://www.w3.org/TR/SVG11/types.html#InterfaceSVGLength<br>
+ * https://www.w3.org/TR/SVG11/types.html#DataTypeLength
+ */
 public class SVGLength {
     // フィールドunitTypeのリスト
     public final static short TYPE_UNKNOWN = 0;    // 単位不明
@@ -18,19 +23,35 @@ public class SVGLength {
     private float valueInSpecifiedUnits;// 数値 (単位なし)
     private short unitType;             // 単位を表す値
 
+    /**
+     * フィールドvalueAsStringの取得
+     * @return フィールドvalueAsString
+     */
     public String getValueAsString() {
         return this.valueAsString;
     }
 
+    /**
+     * フィールドvalueInSpecifiedUnitsの取得
+     * @return フィールドvalueInSpecifiedUnits
+     */
     public float getValueInSpecifiedUnits() {
         return this.valueInSpecifiedUnits;
     }
 
+    /**
+     * フィールドunitTypeの取得
+     * @return フィールドunitType
+     */
     public short getUnitType() {
         return this.unitType;
     }
 
-    // 属性を任意の値にリセット
+    /**
+     * 全フィールドを任意の値にセットする
+     * @param unitType フィールドunitTypeに対応する数値
+     * @param valueInSpecifiedUnits フィールドvalueInSpecifiedUnitsに対応する数値
+     */
     public void newValueSpecifiedUnit(short unitType, float valueInSpecifiedUnits) {
         this.unitType = unitType;
         this.valueInSpecifiedUnits = valueInSpecifiedUnits;
@@ -61,6 +82,11 @@ public class SVGLength {
         }
     }
 
+    /**
+     * フィールドunitTypeを表す数値から文字列への変換
+     * @param type 変換したい数値
+     * @return 対応する文字列
+     */
     public static String unitTypeToString(short type) {
         String str;
         switch(type) {
@@ -97,6 +123,11 @@ public class SVGLength {
         return str;
     }
 
+    /**
+     * フィールドunitTypeを表す文字列から数値への変換
+     * @param str 変換したい文字列
+     * @return 対応する数値
+     */
     public static short stringToUnitType(String str) {
         short type;
         switch (str) {

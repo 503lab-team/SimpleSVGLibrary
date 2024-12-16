@@ -2,284 +2,467 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.*;
 
+/**
+ * SVGドキュメント
+ * SVGの各要素の生成は以下のメソッドを使用する
+ */
 public class SVGDocument {
     private Document document;
     private SVG rootElement;
 
+    /**
+     * コンストラクタ
+     * @param var_document ドキュメント
+     */
     public SVGDocument(Document var_document) {
         this.document = var_document;
     }
 
+    /**
+     * ドキュメントの取得
+     * @return ドキュメント
+     */
     public Document getDocument() {
         return document;
     }
 
+    /**
+     * SVG要素を子要素に追加
+     * @param svg SVG要素
+     */
     public void appendChild(SVG svg) {
         this.document.appendChild(svg.getElement());
     }
     
-    // A.java
+    /**
+     * a要素の生成
+     * @return a要素
+     */
     public A createA() {
         return new A(this.document);
     }
     
-    // AltGlyph.java
+    /**
+     * altGlyph要素の生成
+     * @return altGlyph要素
+     */
     public AltGlyph createAltGlyph() {
         return new AltGlyph(this.document);
     }
     
-    // AltGlyphDef.java
+    /**
+     * altGlyphDef要素の生成
+     * @return altGlyphDef要素
+     */
     public AltGlyphDef createAltGlyphDef() {
         return new AltGlyphDef(this.document);
     }
     
-    // AltGlyphItem.java
+    /**
+     * altGlyphItem要素の生成
+     * @return altGlyphItem要素
+     */
     public AltGlyphItem createAltGlyphItem() {
         return new AltGlyphItem(this.document);
     }
 
-    // Animate.java
+    /**
+     * animate要素の生成
+     * @return animate要素
+     */
     public Animate createAnimate() {
         return new Animate(this.document);
     }
 
-    // AnimateColor.java
+    /**
+     * animateColor要素の生成
+     * @return animateColor要素
+     */
     public AnimateColor createAnimateColor() {
         return new AnimateColor(this.document);
     }
 
-    // Animate.java
+    /**
+     * animateMotion要素の生成
+     * @return animateMotion要素
+     */
     public AnimateMotion createAnimateMotion() {
         return new AnimateMotion(this.document);
     }
 
-    // Animate.java
+    /**
+     * animateTransform要素の生成
+     * @return animateTransform要素
+     */
     public AnimateTransform createAnimateTransform() {
         return new AnimateTransform(this.document);
     }
 
-    // Circle.java
+    /**
+     * circle要素の生成
+     * @return circle要素
+     */
     public Circle createCircle() {
         return new Circle(this.document);
     }
 
-    // ClipPath.java
+    /**
+     * clipPath要素の生成
+     * @return clipPath要素
+     */
     public ClipPath createClipPath() {
         return new ClipPath(this.document);
     }
 
-    // Cursor.java
+    /**
+     * cursor要素の生成
+     * @return cursor要素
+     */
     public Cursor createCursor() {
         return new Cursor(this.document);
     }
     
-    // Defs.java
+    /**
+     * defs要素の生成
+     * @return defs要素
+     */
     public Defs createDefs() {
         return new Defs(this.document);
     }
 
-    // Desc.java
+    /**
+     * desc要素の生成
+     * @return desc要素
+     */
     public Desc createDesc() {
         return new Desc(this.document);
     }
 
-    // Ellipse.java
+    /**
+     * ellipse要素の生成
+     * @return ellipse要素
+     */
     public Ellipse createEllipse() {
         return new Ellipse(this.document);
     }
 
-    // Filter.java
+    /**
+     * filter要素の生成
+     * @return filter要素
+     */
     public Filter createFilter() {
         return new Filter(this.document);
     }
 
-    // Font.java
+    /**
+     * font要素の生成
+     * @return font要素
+     */
     public Font createFont() {
         return new Font(this.document);
     }
 
-    // FontFace.java
+    /**
+     * font-face要素の生成
+     * @return font-face要素
+     */
     public FontFace createFontFace() {
         return new FontFace(this.document);
     }
 
-    // FontFaceFormat.java
+    /**
+     * font-face-format要素の生成
+     * @return font-face-format要素
+     */
     public FontFaceFormat createFontFaceFormat() {
         return new FontFaceFormat(this.document);
     }
 
-    // FontFaceName.java
+    /**
+     * font-face-name要素の生成
+     * @return font-face-name要素
+     */
     public FontFaceName createFontFaceName() {
         return new FontFaceName(this.document);
     }
 
-    // FontFaceSrc.java
+    /**
+     * font-face-src要素の生成
+     * @return font-face-src要素
+     */
     public FontFaceSrc createFontFaceSrc() {
         return new FontFaceSrc(this.document);
     }
 
-    // FontFaceUri.java
+    /**
+     * font-face-uri要素の生成
+     * @return font-face-uri要素
+     */
     public FontFaceUri createFontFaceUri() {
         return new FontFaceUri(this.document);
     }
 
-    // ForeignObject.java
+    /**
+     * foreignObject要素の生成
+     * @return foreignObject要素
+     */
     public ForeignObject createForeignObject() {
         return new ForeignObject(this.document);
     }
 
-    // G.java
+    /**
+     * g要素の生成
+     * @return g要素
+     */
     public G createG() {
         return new G(this.document);
     }
 
-    // Glyph.java
+    /**
+     * glyph要素の生成
+     * @return glyph要素
+     */
     public Glyph createGlyph() {
         return new Glyph(this.document);
     }
 
-    // GlyphRef.java
+    /**
+     * glyphRef要素の生成
+     * @return glyphRef要素
+     */
     public GlyphRef createGlyphRef() {
         return new GlyphRef(this.document);
     }
 
-    // Hkern.java
+    /**
+     * hkern要素の生成
+     * @return hkern要素
+     */
     public Hkern createHkern() {
         return new Hkern(this.document);
     }
 
-    // Image.java
+    /**
+     * image要素の生成
+     * @return image要素
+     */
     public Image createImage() {
         return new Image(this.document);
     }
 
-    // Line.java
+    /**
+     * line要素の生成
+     * @return line要素
+     */
     public Line createLine() {
         return new Line(this.document);
     }
 
-    // LinearGradient.java
+    /**
+     * linearGradient要素の生成
+     * @return linearGradient要素
+     */
     public LinearGradient createLinearGradient() {
         return new LinearGradient(this.document);
     }
 
-    // Marker.java
+    /**
+     * mpath要素の生成
+     * @return mpath要素
+     */
+    public MPath createMPath() {
+        return new MPath(this.document);
+    }
+
+    /**
+     * marker要素の生成
+     * @return marker要素
+     */
     public Marker createMarker() {
         return new Marker(this.document);
     }
 
-    // Mask.java
+    /**
+     * mask要素の生成
+     * @return mask要素
+     */
     public Mask createMask() {
         return new Mask(this.document);
     }
 
-    // Metadata.java
+    /**
+     * metadata要素の生成
+     * @return metadata要素
+     */
     public Metadata createMetadata() {
         return new Metadata(this.document);
     }
 
-    // MissingGlyph.java
+    /**
+     * missing-glyph要素の生成
+     * @return missing-glyph要素
+     */
     public MissingGlyph createMissingGlyph() {
         return new MissingGlyph(this.document);
     }
 
-    // Path.java
+    /**
+     * path要素の生成
+     * @return path要素
+     */
     public Path createPath() {
         return new Path(this.document);
     }
 
-    // Pattern.java
+    /**
+     * pattern要素の生成
+     * @return pattern要素
+     */
     public Pattern createPattern() {
         return new Pattern(this.document);
     }
 
-    // Polygon.java
+    /**
+     * polygon要素の生成
+     * @return polygon要素
+     */
     public Polygon createPolygon() {
         return new Polygon(this.document);
     }
 
-    // Polyline.java
+    /**
+     * polyline要素の生成
+     * @return polyline要素
+     */
     public Polyline createPolyline() {
         return new Polyline(this.document);
     }
             
-    // RadialGradient.java
+    /**
+     * radialGradient要素の生成
+     * @return radialGradient要素
+     */
     public RadialGradient createRadialGradient() {
         return new RadialGradient(this.document);
     }
     
-    // Rect.java
+    /**
+     * rect要素の生成
+     * @return rect要素
+     */
     public Rect createRect() {
         return new Rect(this.document);
     }
 
-    // SVG.java
+    /**
+     * SVG要素の生成
+     * @return SVG要素
+     */
     public SVG createSVG() {
         this.rootElement = new SVG(this.document);
         return this.rootElement;
     }
     
-    // Script.java
+    /**
+     * script要素の生成
+     * @return script要素
+     */
     public Script createScript() {
         return new Script(this.document);
     }
 
-    // Set.java
+    /**
+     * set要素の生成
+     * @return set要素
+     */
     public Set createSet() {
         return new Set(this.document);
     }
 
-    // Stop.java
+    /**
+     * stop要素の生成
+     * @return stop要素
+     */
     public Stop createStop() {
         return new Stop(this.document);
     }
 
-    // Style.java
+    /**
+     * style要素の生成
+     * @return style要素
+     */
     public Style createStyle() {
         return new Style(this.document);
     }
 
-    // Switch.java
+    /**
+     * switch要素の生成
+     * @return switch要素
+     */
     public Switch createSwitch() {
         return new Switch(this.document);
     }
 
-    // Symbol.java
+    /**
+     * symbol要素の生成
+     * @return symbol要素
+     */
     public Symbol createSymbol() {
         return new Symbol(this.document);
     }
     
-    // Text.java
+    /**
+     * text要素の生成
+     * @return text要素
+     */
     public Text createText() {
         return new Text(this.document);
     }
 
-    // TextPath.java
+    /**
+     * textPath要素の生成
+     * @return textPath要素
+     */
     public TextPath createTextPath() {
         return new TextPath(this.document);
     }  
 
-    // Title.java
+    /**
+     * title要素の生成
+     * @return title要素
+     */
     public Title createTitle() {
         return new Title(this.document);
     }
 
-    // Tref.java
+    /**
+     * tref要素の生成
+     * @return tref要素
+     */
     public Tref createTref() {
         return new Tref(this.document);
     }    
 
-    // Tspan.java
+    /**
+     * tspan要素の生成
+     * @return tspan要素
+     */
     public Tspan createTspan() {
         return new Tspan(this.document);
     }
 
-    // Use.java
+    /**
+     * use要素の生成
+     * @return use要素
+     */
     public Use createUse() {
         return new Use(this.document);
     }
 
-    // Vkern.java
+    /**
+     * vkern要素の生成
+     * @return vkern要素
+     */
     public Vkern createVkern() {
         return new Vkern(this.document);
     }

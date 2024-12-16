@@ -1,9 +1,12 @@
-// <radialGradient>要素
-
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
+/**
+ * radialGradient要素<br>
+ * https://www.w3.org/TR/SVG11/pservers.html#RadialGradientElement<br>
+ * https://www.w3.org/TR/SVG11/pservers.html#InterfaceSVGRadialGradientElement
+ */
 public class RadialGradient extends Gradient {
     private SVGLength cx = new SVGLength();
     private SVGLength cy = new SVGLength();
@@ -11,30 +14,58 @@ public class RadialGradient extends Gradient {
     private SVGLength fx = new SVGLength();
     private SVGLength fy = new SVGLength();
 
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     */
     public RadialGradient(Document document) {
         super(document, "radialGradient");
     }
 
+    /**
+     * 属性cxの取得
+     * @return 属性cx
+     */
     public SVGLength getCX() {
         return this.cx;
     }
 
+    /**
+     * 属性cyの取得
+     * @return 属性cy
+     */
     public SVGLength getCY() {
         return this.cy;        
     }
 
+    /**
+     * 属性rの取得
+     * @return 属性r
+     */
     public SVGLength getR() {
         return this.r;
     }
 
+    /**
+     * 属性fxの取得
+     * @return 属性fx
+     */
     public SVGLength getFX() {
         return this.fx;
     }
 
+    /**
+     * 属性fyの取得
+     * @return 属性fy
+     */
     public SVGLength getFY() {
         return this.fy;
     }
 
+    /**
+     * 属性cxのセット
+     * @param cx 属性cxに与える値
+     */
     public void setCX(String cx) {
         this.cx.newValueSpecifiedUnit(cx);
         super.setAttribute("cx", this.cx.getValueAsString());
@@ -56,6 +87,10 @@ public class RadialGradient extends Gradient {
         super.setAttribute("cx", this.cx.getValueAsString());
     }
 
+    /**
+     * 属性cyのセット
+     * @param cy 属性cyに与える値
+     */
     public void setCY(String cy) {
         this.cy.newValueSpecifiedUnit(cy);
         super.setAttribute("cy", this.cy.getValueAsString());
@@ -77,6 +112,10 @@ public class RadialGradient extends Gradient {
         super.setAttribute("cy", this.cy.getValueAsString());
     }
 
+    /**
+     * 属性rのセット
+     * @param r 属性rに与える値
+     */
     public void setR(String r) {
         this.r.newValueSpecifiedUnit(r);
         super.setAttribute("r", this.r.getValueAsString());
@@ -98,6 +137,10 @@ public class RadialGradient extends Gradient {
         super.setAttribute("r", this.r.getValueAsString());
     }
 
+    /**
+     * 属性fxのセット
+     * @param fx 属性fxに与える値
+     */
     public void setFX(String fx) {
         this.fx.newValueSpecifiedUnit(fx);
         super.setAttribute("fx", this.fx.getValueAsString());
@@ -119,6 +162,10 @@ public class RadialGradient extends Gradient {
         super.setAttribute("fx", this.fx.getValueAsString());
     }
 
+    /**
+     * 属性fyのセット
+     * @param fy 属性fyに与える値
+     */
     public void setFY(String fy) {
         this.fy.newValueSpecifiedUnit(fy);
         super.setAttribute("fy", this.fy.getValueAsString());

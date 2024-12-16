@@ -1,9 +1,12 @@
-// 作っただけで使ってない
-
 package sokadalab.svgdomtest;
 
+/**
+ * 属性preserveAspectRatio<br>
+ * 作っただけで使ってない<br>
+ * https://www.w3.org/TR/SVG11/coords.html#InterfaceSVGPreserveAspectRatio
+ */
 public class SVGPreserveAspectRatio {
-    // align Types
+    // フィールドalignの種類
     public final short PRESERVEASPECTRATIO_UNKNOWN = 0;
     public final short PRESERVEASPECTRATIO_NONE = 1;
     public final short PRESERVEASPECTRATIO_XMINYMIN = 2;
@@ -16,7 +19,7 @@ public class SVGPreserveAspectRatio {
     public final short PRESERVEASPECTRATIO_XMIDYMAX = 9;
     public final short PRESERVEASPECTRATIO_XMAXYMAX = 10;
 
-    // meet-or-slice Types
+    // フィールドmeetOrSliceの種類
     public final short MEETORSLICE_UNKNOWN = 0;
     public final short MEETORSLICE_MEET = 1;
     public final short MEETORSLICE_SLICE = 2;

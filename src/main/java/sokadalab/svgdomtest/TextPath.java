@@ -1,16 +1,19 @@
-// <textPath>要素
-
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
+/**
+ * textPath要素<br>
+ * https://www.w3.org/TR/SVG11/text.html#TextPathElement<br>
+ * https://www.w3.org/TR/SVG11/text.html#InterfaceSVGTextPathElement
+ */
 public class TextPath extends TextContentElement {
-    // textPath Method Types
+    // methodの種類
     public static final short METHODTYPE_UNKNOWN = 0;
     public static final short METHODTYPE_ALIGN = 1;
     public static final short METHODTYPE_STRETCH = 2;
 
-    // textPath Spacing Types
+    // spacingの種類
     public static final short SPACINGTYPE_UNKNOWN = 0;
     public static final short SPACINGTYPE_AUTO = 1;
     public static final short SPACINGTYPE_EXACT = 2;
@@ -19,22 +22,42 @@ public class TextPath extends TextContentElement {
     private short method;
     private short spacing;
 
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     */
     public TextPath(Document document) {
         super(document, "textPath");
     }
 
+    /**
+     * 属性startOffsetの取得
+     * @return 属性startOffset
+     */
     public SVGLength getStartOffset() {
         return this.startOffset;
     }
 
+    /**
+     * 属性methodの取得
+     * @return 属性method
+     */
     public short getMethod() {
         return this.method;
     }
 
+    /**
+     * 属性spacingの取得
+     * @return 属性spacing
+     */
     public short getSpacing() {
         return this.spacing;
     }
 
+    /**
+     * 属性startOffsetのセット
+     * @param startOffset 属性startOffsetに与える値
+     */
     public void setStartOffset(String startOffset) {
         this.startOffset.newValueSpecifiedUnit(startOffset);
         super.setAttribute("startOffset", this.startOffset.getValueAsString());
@@ -56,6 +79,10 @@ public class TextPath extends TextContentElement {
         super.setAttribute("startOffset", this.startOffset.getValueAsString());
     }
 
+    /**
+     * 属性methodのセット
+     * @param method 属性methodに与える値
+     */
     public void setMethod(String method) {
         this.method = stringToMethodType(method);
         super.setAttribute("method", methodTypeToString(this.method));
@@ -65,6 +92,10 @@ public class TextPath extends TextContentElement {
         super.setAttribute("method", methodTypeToString(this.method));
     }
 
+    /**
+     * 属性spacingのセット
+     * @param spacing 属性spacingに与える値
+     */
     public void setSpacing(String spacing) {
         this.spacing = stringToSpacingType(spacing);
         super.setAttribute("spacing", methodTypeToString(this.spacing));
@@ -74,6 +105,11 @@ public class TextPath extends TextContentElement {
         super.setAttribute("spacing", methodTypeToString(this.spacing));
     }
 
+    /**
+     * フィールドmethodを表す文字列から数値への変換
+     * @param str 変換したい文字列
+     * @return 対応する数値
+     */
     public static short stringToMethodType(String str) {
         short result;
         switch(str) {
@@ -89,6 +125,11 @@ public class TextPath extends TextContentElement {
         return result;
     }
 
+    /**
+     * フィールドmethodを表す数値から文字列への変換
+     * @param methodType 変換したい数値
+     * @return 対応する文字列
+     */
     public static String methodTypeToString(short methodType) {
         String result;
         switch(methodType) {
@@ -104,6 +145,11 @@ public class TextPath extends TextContentElement {
         return result;
     }
 
+    /**
+     * フィールドspacingを表す文字列から数値への変換
+     * @param str 変換したい文字列
+     * @return 対応する数値
+     */
     public static short stringToSpacingType(String str) {
         short result;
         switch(str) {
@@ -119,6 +165,11 @@ public class TextPath extends TextContentElement {
         return result;        
     }
 
+    /**
+     * フィールドspacingを表す数値から文字列への変換
+     * @param spacingType 変換したい数値
+     * @return 対応する文字列
+     */
     public static String spacingTypeToString(short spacingType) {
         String result;
         switch(spacingType) {

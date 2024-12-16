@@ -2,8 +2,12 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
+/**
+ * LinearGradientとRadialGradientの基本となるクラス<br>
+ * https://www.w3.org/TR/SVG11/pservers.html#InterfaceSVGGradientElement
+ */
 public class Gradient extends SVGElement {
-    // Spread Method Types
+    // フィールドspreadMethodの種類
     public final static short SPREADMETHOD_UNKNOWN = 0;
     public final static short SPREADMETHOD_PAD = 1;
     public final static short SPREADMETHOD_REFLECT = 2;
@@ -12,28 +16,44 @@ public class Gradient extends SVGElement {
     private short gradientUnits;
     private short spreadMethod;
     private String gradientTransform;
-    private String href;
 
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     * @param name 要素名
+     */
     public Gradient(Document document, String name) {
         super(document, name);
     }
 
+    /**
+     * 属性gradientUnitsの取得
+     * @return 属性gradientUnits
+     */
     public short getGradientUnits() {
         return this.gradientUnits;
     }
 
+    /**
+     * 属性spreadMethodの取得
+     * @return 属性spreadMethod
+     */
     public short getSpreadMethod() {
         return this.spreadMethod;
     }
 
+    /**
+     * 属性gradientTransformの取得
+     * @return 属性gradientTransform
+     */
     public String getGradientTransform() {
         return this.gradientTransform;
     }
 
-    public String getHref() {
-        return this.href;
-    }
-    
+    /**
+     * 属性gradientUnitsのセット
+     * @param units 属性gradientUnitsに与える値
+     */
     public void setGradientUnits(String units) {
         this.gradientUnits = SVGUnitTypes.stringToUnitType(units);
         this.setAttribute("gradientUnits", SVGUnitTypes.unitTypeToString(this.gradientUnits));
@@ -43,6 +63,10 @@ public class Gradient extends SVGElement {
         this.setAttribute("gradientUnits", SVGUnitTypes.unitTypeToString(this.gradientUnits));
     }
 
+    /**
+     * 属性spreadMethodのセット
+     * @param method 属性spreadMethodに与える値
+     */
     public void setSpreadMethod(String method) {
         this.spreadMethod = stringToSpreadMethod(method);
         this.setAttribute("spreadMethod", spreadMethodToString(this.spreadMethod));
@@ -52,16 +76,20 @@ public class Gradient extends SVGElement {
         this.setAttribute("spreadMethod", spreadMethodToString(this.spreadMethod));
     }
 
+    /**
+     * 属性gradientTransformのセット
+     * @param transform 属性gradientTransformに与える値
+     */
     public void setGradientTransform(String transform) {
         this.gradientTransform = transform;
         this.setAttribute("gradientTransform", this.gradientTransform);
     }
-    
-    public void setHref(String href) {
-        this.href = href;
-        super.setAttribute("href", this.href);
-    }
 
+    /**
+     * spreadMethodが表す数値から文字列への変換
+     * @param str 変換したい文字列
+     * @return 対応する数値
+     */
     public static short stringToSpreadMethod(String str) {
         switch (str) {
             case "pad" :
@@ -75,6 +103,11 @@ public class Gradient extends SVGElement {
         }
     }
 
+    /**
+     * spreadMethodが表す文字列から数値への変換
+     * @param type 変換したい数値
+     * @return 対応する文字列
+     */
     public static String spreadMethodToString(short type) {
         switch (type) {
             case SPREADMETHOD_PAD :

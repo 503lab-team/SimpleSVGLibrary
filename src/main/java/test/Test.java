@@ -1,5 +1,3 @@
-// 動作確認用
-
 package test;
 
 import sokadalab.svgdomtest.*;
@@ -11,7 +9,14 @@ import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 import javax.xml.transform.dom.*;
 
+/**
+ * 動作確認用
+ */
 public class Test {
+    /**
+     * メインのクラス
+     * @param args 意味はありません
+     */
     public static void main(String[] args) {
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -44,8 +49,18 @@ public class Test {
             svg.appendChild(circle);
             circle.setCX("200");
             circle.setCY(300);
-            circle.setR(SVGLength.TYPE_PX, 100);
+            circle.setR(SVGLength.TYPE_PER, 15);
             circle.setFill("url('#linear')");
+
+            Desc desc1 = svgdoc.createDesc();
+            svg.appendChild(desc1);
+            desc1.setTextNode(document, circle.getR().getValueAsString());
+
+            Desc desc2 = svgdoc.createDesc();
+            svg.appendChild(desc2);
+            desc2.setTextNode(document, stop1.getOffset());
+
+            System.out.println("Test.java");
 
             Transformer transformer
                     = TransformerFactory.newInstance().newTransformer();

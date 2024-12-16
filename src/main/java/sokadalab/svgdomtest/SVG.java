@@ -1,10 +1,13 @@
-// <svg>要素
-
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-public class SVG extends SVGElement{
+/**
+ * SVG要素<br>
+ * https://www.w3.org/TR/SVG11/struct.html#SVGElement<br>
+ * https://www.w3.org/TR/SVG11/struct.html#InterfaceSVGSVGElement
+ */
+public class SVG extends SVGLangSpace {
     private SVGLength x = new SVGLength();
     private SVGLength y = new SVGLength();
     private SVGLength width = new SVGLength();
@@ -13,39 +16,75 @@ public class SVG extends SVGElement{
     private String xmlns;
     private String version;
     
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     */
     public SVG(Document document){
         super(document, "svg");
         setXmlns("http://www.w3.org/2000/svg");
     }
 
+    /**
+     * 属性xを取得
+     * @return 属性x
+     */
     public SVGLength getX() {
         return this.x;
     }
 
+    /**
+     * 属性yを取得
+     * @return 属性y
+     */
     public SVGLength getY() {
         return this.y;
     }
 
+    /**
+     * 属性widthを取得
+     * @return 属性width
+     */
     public SVGLength getWidth() {
         return this.width;
     }
 
+    /**
+     * 属性heightを取得
+     * @return 属性height
+     */
     public SVGLength getHeight() {
         return this.height;
     }
 
+    /**
+     * 属性viewBoxを取得
+     * @return 属性viewBox
+     */
     public SVGLengthList getViewBox() {
         return this.viewBox;
     }
 
+    /**
+     * 属性xmlnsを取得
+     * @return 属性xmlns
+     */
     public String getXmlns() {
         return this.xmlns;
     }
 
+    /**
+     * 属性versionを取得
+     * @return 属性version
+     */
     public String getVersion() {
         return this.version;
     }
 
+    /**
+     * 属性xをセット
+     * @param x 属性xに与える値
+     */
     public void setX(String x){
         this.x.newValueSpecifiedUnit(x);
         super.setAttribute("x", this.x.getValueAsString());
@@ -66,7 +105,11 @@ public class SVG extends SVGElement{
         this.x = x;
         super.setAttribute("x", this.x.getValueAsString());
     }
-    
+
+    /**
+     * 属性yをセット
+     * @param y 属性yに与える値
+     */
     public void setY(String y){
         this.y.newValueSpecifiedUnit(y);
         super.setAttribute("y", this.y.getValueAsString());
@@ -88,6 +131,10 @@ public class SVG extends SVGElement{
         super.setAttribute("y", this.y.getValueAsString());
     }
 
+    /**
+     * 属性widthをセット
+     * @param width 属性widthに与える値
+     */
     public void setWidth(String width){
         this.width.newValueSpecifiedUnit(width);
         super.setAttribute("width", this.width.getValueAsString());
@@ -109,6 +156,10 @@ public class SVG extends SVGElement{
         super.setAttribute("width", this.width.getValueAsString());
     }
 
+    /**
+     * 属性heightをセット
+     * @param height 属性heightに与える値
+     */
     public void setHeight(String height){
         this.height.newValueSpecifiedUnit(height);
         super.setAttribute("height", this.height.getValueAsString());
@@ -130,6 +181,10 @@ public class SVG extends SVGElement{
         super.setAttribute("height", this.height.getValueAsString());
     }
 
+    /**
+     * 属性viewBoxをセット
+     * @param viewBox 属性viewBoxに与える値
+     */
     public void setViewBox(SVGLengthList viewBox) {
         this.viewBox = viewBox;
         super.setAttribute("viewBox", this.viewBox.getAllItem());
@@ -142,11 +197,19 @@ public class SVG extends SVGElement{
         super.setAttribute("viewBox", this.viewBox.getAllItem());
     }
 
+    /**
+     * 属性xmlnsをセット
+     * @param xmlns 属性xmlnsに与える値
+     */
     public void setXmlns(String xmlns) {
         this.xmlns = xmlns;
         super.setAttribute("xmlns", xmlns);
     }
 
+    /**
+     * 属性versionをセット
+     * @param version 属性versionに与える値
+     */
     public void setVersion(String version) {
         this.version = version;
         super.setAttribute("version", version);

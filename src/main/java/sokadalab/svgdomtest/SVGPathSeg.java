@@ -1,12 +1,15 @@
-// <path>要素の属性dのコマンド1組
-
 package sokadalab.svgdomtest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * path要素の属性dのデータリスト<br>
+ * https://www.w3.org/TR/SVG11/paths.html#PathData<br>
+ * https://www.w3.org/TR/SVG11/paths.html#InterfaceSVGPathSeg<br>
+ */
 public class SVGPathSeg extends ArrayList {
-    // Path Segment Types
+    // フィールドPathSegTypeの種類
     public final static short PATHSEG_UNKNOWN = 0;
     public final static short PATHSEG_CLOSEPATH = 1;
     public final static short PATHSEG_MOVETO_ABS = 2;
@@ -32,6 +35,11 @@ public class SVGPathSeg extends ArrayList {
     public String pathSegTypeAsLetter;                 // アルファベット1文字
     public List<Float> data = new ArrayList<Float>();  // パスの数値リスト
 
+    /**
+     * フィールドpathSegTypeが表す数値から文字列への変換
+     * @param pathSegType 変換したい数値
+     * @return 対応する文字列
+     */
     public static String typeToLetter(short pathSegType) {
         switch (pathSegType) {
             case SVGPathSeg.PATHSEG_CLOSEPATH :
@@ -76,6 +84,12 @@ public class SVGPathSeg extends ArrayList {
                 return "";
         }        
     }
+
+    /**
+     * フィールドpathSegTypeが表す文字列から数値への変換
+     * @param pathSegTypeAsLetter 変換したい文字列
+     * @return 対応する数値
+     */
     public static short letterToType(String pathSegTypeAsLetter) {
         switch (pathSegTypeAsLetter) {
             case "Z" :
@@ -121,5 +135,18 @@ public class SVGPathSeg extends ArrayList {
             default :
                 return SVGPathSeg.PATHSEG_UNKNOWN;
         }
+    }
+
+    /**
+     * フィールドpathSegTypeとフィールドpathSegTypeAsLetterのセット
+     * @param type フィールドpathSegTypeおよびpathSegTypeAsLetterに対応する値
+     */
+    public void setType(short type) {
+        this.pathSegType = type;
+        this.pathSegTypeAsLetter = typeToLetter(this.pathSegType);
+    }
+    public void setType(String type) {
+        this.pathSegTypeAsLetter = type;
+        this.pathSegType = letterToType(this.pathSegTypeAsLetter);
     }
 }

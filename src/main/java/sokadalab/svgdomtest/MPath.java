@@ -1,22 +1,18 @@
-// <mpath>要素
-
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
+/**
+ * mpath要素<br>
+ * https://www.w3.org/TR/SVG11/animate.html#MPathElement<br>
+ * https://www.w3.org/TR/SVG11/animate.html#InterfaceSVGMPathElement
+ */
 public class MPath extends SVGElement {
-    private String href;
-
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     */
     public MPath(Document document) {
         super(document, "mpath");
-    }
-
-    public String getHref() {
-        return this.href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-        super.setAttribute("href", this.href);
     }
 }

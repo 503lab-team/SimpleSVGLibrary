@@ -2,8 +2,13 @@ package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
+/**
+ * marker要素<br>
+ * https://www.w3.org/TR/SVG11/painting.html#MarkerElement<br>
+ * https://www.w3.org/TR/SVG11/painting.html#InterfaceSVGMarkerElement
+ */
 public class Marker extends SVGElement {
-    // Marker Unit Types
+    // フィールドmarkerUnitsの種類
     public final static short UNITS_UNKNOWN = 0;
     public final static short UNITS_USERSPACEONUSE = 1;
     public final static short UNITS_STROKEWIDTH = 2;
@@ -17,42 +22,82 @@ public class Marker extends SVGElement {
     private SVGAngle orientAngle = new SVGAngle();
     private SVGLengthList viewBox = new SVGLengthList();
 
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     */
     public Marker(Document document) {
         super(document, "marker");
     }
 
+    /**
+     * 属性refXの取得
+     * @return 属性refX
+     */
     public SVGLength getRefX() {
         return this.refX;
     }
 
+    /**
+     * 属性refYの取得
+     * @return 属性refY
+     */
     public SVGLength getRefY() {
         return this.refY;
     }
 
+    /**
+     * 属性markerWidthの取得
+     * @return 属性markerWidth
+     */
     public SVGLength getMarkerWidth() {
         return this.markerWidth;
     }
 
+    /**
+     * 属性markerHeightの取得
+     * @return 属性markerHeight
+     */
     public SVGLength getMarkerHeight() {
         return this.markerHeight;
     }
 
+    /**
+     * 属性markerUnitsの取得
+     * @return 属性markerUnits
+     */
     public short getMarkerUnits() {
         return this.markerUnits;
     }
 
+    /**
+     * 属性orientの取得
+     * @return 属性orient
+     */
     public String getOrient() {
         return this.orient;
     }
 
+    /**
+     * 属性orientAngleの取得
+     * @return 属性orientAngle
+     */
     public SVGAngle getOrientAngle() {
         return this.orientAngle;
     }
 
+    /**
+     * 属性viewBoxの取得
+     * @return 属性viewBox
+     */
     public SVGLengthList getViewBox() {
         return this.viewBox;
     }
 
+    /**
+     * 属性refXのセット
+     * @param refX 属性refXに与える値
+     */
     public void setRefX(String refX) {
         this.refX.newValueSpecifiedUnit(refX);
         super.setAttribute("refX", this.refX.getValueAsString());
@@ -74,6 +119,10 @@ public class Marker extends SVGElement {
         super.setAttribute("refX", this.refX.getValueAsString());
     }
 
+    /**
+     * 属性refYのセット
+     * @param refY 属性refYに与える値
+     */
     public void setRefY(String refY) {
         this.refY.newValueSpecifiedUnit(refY);
         super.setAttribute("refY", this.refY.getValueAsString());
@@ -95,6 +144,10 @@ public class Marker extends SVGElement {
         super.setAttribute("refY", this.refY.getValueAsString());
     }
 
+    /**
+     * 属性markerWidthのセット
+     * @param markerWidth 属性markerWidthに与える値
+     */
     public void setMarkerWidth(String markerWidth) {
         this.markerWidth.newValueSpecifiedUnit(markerWidth);
         super.setAttribute("markerWidth", this.markerWidth.getValueAsString());
@@ -116,6 +169,10 @@ public class Marker extends SVGElement {
         super.setAttribute("markerWidth", this.markerWidth.getValueAsString());
     }
 
+    /**
+     * 属性markerHeightのセット
+     * @param height 属性markerHeightに与える値
+     */
     public void setMarkerHeight(String height) {
         super.setAttribute("markerHeight", height);
     }
@@ -136,6 +193,10 @@ public class Marker extends SVGElement {
         super.setAttribute("markerHeight", this.markerHeight.getValueAsString());
     }
 
+    /**
+     * 属性markerUnitsのセット
+     * @param markerUnits 属性markerUnitsに与える値
+     */
     public void setMarkerUnits(String markerUnits) {
         this.markerUnits = stringToMarkerUnits(markerUnits);
         super.setAttribute("markerUnits", markerUnitsToString(this.markerUnits));
@@ -145,11 +206,19 @@ public class Marker extends SVGElement {
         super.setAttribute("markerUnits", markerUnitsToString(this.markerUnits));
     }
 
+    /**
+     * 属性orientのセット
+     * @param orient 属性orientに与える値
+     */
     public void setOrient(String orient) {
         this.orient = orient;
         super.setAttribute("orient", this.orient);
     }
 
+    /**
+     * 属性orientAngleのセット
+     * @param orientAngle 属性orientAngleに与える値
+     */
     public void setOrientAngle(String orientAngle) {
         this.orientAngle.newValueSpecifiedUnit(orientAngle);
         super.setAttribute("orientAngle", this.orientAngle.getValueAsString());
@@ -171,6 +240,10 @@ public class Marker extends SVGElement {
         super.setAttribute("orientAngle", this.orientAngle.getValueAsString());
     }
 
+    /**
+     * 属性viewBoxのセット
+     * @param viewBox 属性viewBoxに与える値
+     */
     public void setViewBox(SVGLengthList viewBox) {
         this.viewBox = viewBox;
         super.setAttribute("viewBox", this.viewBox.getAllItem());
@@ -183,6 +256,11 @@ public class Marker extends SVGElement {
         super.setAttribute("viewBox", this.viewBox.getAllItem());
     }
 
+    /**
+     * フィールドmarkerUnitsが表す文字列から数値への変換
+     * @param str 変換したい文字列
+     * @return 対応する数値
+     */
     public static short stringToMarkerUnits(String str) {
         switch (str) {
             case "userSpaceOnUse" :
@@ -194,6 +272,11 @@ public class Marker extends SVGElement {
         }
     }
 
+    /**
+     * フィールドmarkerUnitsが表す数値から文字列への変換
+     * @param type 変動したい数値
+     * @return 対応する文字列
+     */
     public static String markerUnitsToString(short type) {
         switch (type) {
             case UNITS_USERSPACEONUSE :

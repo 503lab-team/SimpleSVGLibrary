@@ -1,40 +1,62 @@
-// <use>要素
-
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
 
-public class Use extends SVGElement {
+/**
+ * use要素<br>
+ * https://www.w3.org/TR/SVG11/struct.html#UseElement<br>
+ * https://www.w3.org/TR/SVG11/struct.html#InterfaceSVGUseElement
+ */
+public class Use extends SVGLangSpace {
     private SVGLength x = new SVGLength();
     private SVGLength y = new SVGLength();
     private SVGLength width = new SVGLength();
     private SVGLength height = new SVGLength();
-    private String href;
 
+    /**
+     * コンストラクタ
+     * @param document ドキュメント
+     */
     public Use(Document document) {
         super(document, "use");
     }
 
+    /**
+     * 属性xの取得
+     * @return 属性x
+     */
     public SVGLength getX() {
         return this.x;
     }
 
+    /**
+     * 属性yの取得
+     * @return 属性y
+     */
     public SVGLength getY() {
         return this.y;
     }
 
+    /**
+     * 属性widthの取得
+     * @return 属性width
+     */
     public SVGLength getWidth() {
         return this.width;
     }
 
+    /**
+     * 属性heightの取得
+     * @return 属性height
+     */
     public SVGLength getHeight() {
         return this.height;
     }
 
-    public String getHref() {
-        return this.href;
-    }
-
+    /**
+     * 属性xのセット
+     * @param x 属性xに与える値
+     */
     public void setX(String x) {
         this.x.newValueSpecifiedUnit(x);
         super.setAttribute("x", this.x.getValueAsString());
@@ -56,6 +78,10 @@ public class Use extends SVGElement {
         super.setAttribute("x", this.x.getValueAsString());
     }
 
+    /**
+     * 属性yのセット
+     * @param y 属性yに与える値
+     */
     public void setY(String y) {
         this.y.newValueSpecifiedUnit(y);
         super.setAttribute("y", this.y.getValueAsString());
@@ -77,6 +103,10 @@ public class Use extends SVGElement {
         super.setAttribute("y", this.y.getValueAsString());
     }
 
+    /**
+     * 属性widthのセット
+     * @param width 属性widthに与える値
+     */
     public void setWidth(String width) {
         this.width.newValueSpecifiedUnit(width);
         super.setAttribute("width", this.width.getValueAsString());
@@ -98,6 +128,10 @@ public class Use extends SVGElement {
         super.setAttribute("width", this.width.getValueAsString());
     }
 
+    /**
+     * 属性heightのセット
+     * @param height 属性heightに与える値
+     */
     public void setHeight(String height) {
         this.height.newValueSpecifiedUnit(height);
         super.setAttribute("height", this.height.getValueAsString());
@@ -117,10 +151,5 @@ public class Use extends SVGElement {
     public void setHeight(SVGLength height) {
         this.height = height;
         super.setAttribute("height", this.height.getValueAsString());
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-        super.setAttribute("href", this.href);
     }
 }
