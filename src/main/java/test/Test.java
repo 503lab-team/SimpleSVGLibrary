@@ -23,44 +23,58 @@ public class Test {
             Document document = builder.newDocument();
             SVGDocument svgdoc = new SVGDocument(document);
             SVG svg = svgdoc.createSVG();
-            svg.setWidth("2000");
-            svg.setHeight("1600");
+            svg.setWidth("1000");
+            svg.setHeight("600");
             svgdoc.appendChild(svg);
-
-            Title title = svgdoc.createTitle();
-            svg.appendChild(title);
-            title.setTextNode(document, "SimpleSVGLibrary");
-
-            LinearGradient linear = svgdoc.createLinearGradient();
-            svg.appendChild(linear);
-            linear.setId("linear");
-
-                Stop stop1 = svgdoc.createStop();
-                linear.appendChild(stop1);
-                stop1.setOffset("5%");
-                stop1.setStopColor("yellow");
-
-                Stop stop2 = svgdoc.createStop();
-                linear.appendChild(stop2);
-                stop2.setOffset("95%");
-                stop2.setStopColor("green");
 
             Circle circle = svgdoc.createCircle();
             svg.appendChild(circle);
             circle.setCX("200");
             circle.setCY(300);
             circle.setR(SVGLength.TYPE_PER, 15);
-            circle.setFill("url('#linear')");
+            circle.setFill("blue");
 
-            Desc desc1 = svgdoc.createDesc();
-            svg.appendChild(desc1);
-            desc1.setTextNode(document, circle.getR().getValueAsString());
+            Ellipse ellipse = svgdoc.createEllipse();
+            svg.appendChild(ellipse);
+            ellipse.setCX(700);
+            ellipse.setCY("600");
+            ellipse.setRX("10%");
+            ellipse.setRY((float)50.5);
 
-            Desc desc2 = svgdoc.createDesc();
-            svg.appendChild(desc2);
-            desc2.setTextNode(document, stop1.getOffset());
+            Line line = svgdoc.createLine();
+            svg.appendChild(line);
+            line.setX1((float)10.5);
+            line.setY1("200pc");
+            line.setX2(800);
+            line.setY2(SVGLength.TYPE_UNKNOWN, 200);
+            line.setStroke("green");
+            line.setStrokeWidth(5);
 
-            System.out.println("Test.java");
+            Polygon polygon = svgdoc.createPolygon();
+            svg.appendChild(polygon);
+            polygon.setPoints("900 500");
+            polygon.appendPoints("600", "200");
+            polygon.appendPoints((float)400.5, (float)600);
+            polygon.setFill("yellow");
+            polygon.setStroke("none");
+
+            Polyline polyline = svgdoc.createPolyline();
+            svg.appendChild(polyline);
+            polyline.setPoints("100 10");
+            polyline.appendPoints("900", "500");
+            polyline.appendPoints("20", "100");
+            polyline.setStroke("black");
+            polyline.setStrokeWidth("7.5");
+            polyline.setFill("none");
+
+            Rect rect = svgdoc.createRect();
+            svg.appendChild(rect);
+            rect.setX("600");
+            rect.setY(200);
+            rect.setWidth(SVGLength.TYPE_PC, 20);
+            rect.setHeight((float)90.5);
+            rect.setStroke("red");
+            rect.setFill("pink");
 
             Transformer transformer
                     = TransformerFactory.newInstance().newTransformer();

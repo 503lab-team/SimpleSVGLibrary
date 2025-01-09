@@ -147,6 +147,198 @@ public class SVGDocument {
     }
 
     /**
+     * feBlendの生成
+     * @return feBlend要素
+     */
+    public FeBlend createFeBlend() {
+        return new FeBlend(this.document);
+    }
+
+    /**
+     * feColorMatrix要素の生成
+     * @return feColorMatrix要素
+     */
+    public FeColorMatrix createFeColorMatrix() {
+        return new FeColorMatrix(this.document);
+    }
+
+    /**
+     * feComponentTransfer要素の生成
+     * @return feComponentTransfer要素
+     */
+    public FeComponentTransfer createFeComponentTransfer() {
+        return new FeComponentTransfer(this.document);
+    }
+
+    /**
+     * feComposite要素の生成
+     * @return feComposite要素
+     */
+    public FeComposite createFeComposite() {
+        return new FeComposite(this.document);
+    }
+
+    /**
+     * feConvolveMatrix要素の生成
+     * @return feConvolveMatrix要素
+     */
+    public FeConvolveMatrix createFeConvolveMatrix() {
+        return new FeConvolveMatrix(this.document);
+    }
+
+    /**
+     * feDiffuseLighting要素の生成
+     * @return feDiffuseLighting要素
+     */
+    public FeDiffuseLighting createFeDiffuseLighting() {
+        return new FeDiffuseLighting(this.document);
+    }
+
+    /**
+     * feDisplacementMap要素の生成
+     * @return feDisplacementMap要素
+     */
+    public FeDisplacementMap createFeDisplacementMap() {
+        return new FeDisplacementMap(this.document);
+    }
+
+    /**
+     * feDistantLight要素の生成
+     * @return feDistantLight要素
+     */
+    public FeDistantLight createFeDistantLight() {
+        return new FeDistantLight(this.document);
+    }
+
+    /**
+     * feFlood要素
+     * @return feFlood要素の生成
+     */
+    public FeFlood createFeFlood() {
+        return new FeFlood(this.document);
+    }
+
+    /**
+     * feFuncA要素
+     * @return feFuncA要素の生成
+     */
+    public FeFuncA createFeFuncA() {
+        return new FeFuncA(this.document);
+    }
+
+    /**
+     * feFuncB要素
+     * @return feFuncB要素の生成
+     */
+    public FeFuncB createFeFuncB() {
+        return new FeFuncB(this.document);
+    }
+
+    /**
+     * feFuncG要素
+     * @return feFuncG要素の生成
+     */
+    public FeFuncG createFeFuncG() {
+        return new FeFuncG(this.document);
+    }
+
+    /**
+     * feFuncR要素
+     * @return feFuncR要素の生成
+     */
+    public FeFuncR createFeFuncR() {
+        return new FeFuncR(this.document);
+    }
+
+    /**
+     * feGaussianBlur要素
+     * @return feGaussianBlur要素の生成
+     */
+    public FeGaussianBlur createFeGaussianBlur() {
+        return new FeGaussianBlur(this.document);
+    }
+
+    /**
+     * feImage要素
+     * @return feImage要素の生成
+     */
+    public FeImage createFeImage() {
+        return new FeImage(this.document);
+    }
+
+    /**
+     * feMerge要素
+     * @return feMerge要素の生成
+     */
+    public FeMerge createFeMerge() {
+        return new FeMerge(this.document);
+    }
+
+    /**
+     * feMergeNode要素
+     * @return feMergeNode要素の生成
+     */
+    public FeMergeNode createFeMergeNode() {
+        return new FeMergeNode(this.document);
+    }
+
+    /**
+     * feMorphology要素
+     * @return feMorphology要素の生成
+     */
+    public FeMorphology createFeMorphology() {
+        return new FeMorphology(this.document);
+    }
+
+    /**
+     * feOffset要素
+     * @return feOffset要素の生成
+     */
+    public FeOffset createFeOffset() {
+        return new FeOffset(this.document);
+    }
+
+    /**
+     * fePointLight要素
+     * @return fePointLight要素の生成
+     */
+    public FePointLight createFePointLight() {
+        return new FePointLight(this.document);
+    }
+
+    /**
+     * feSpecularLighting要素
+     * @return feSpecularLighting要素の生成
+     */
+    public FeSpecularLighting createFeSpecularLighting() {
+        return new FeSpecularLighting(this.document);
+    }
+
+    /**
+     * feSpotLight要素
+     * @return feSpotLight要素の生成
+     */
+    public FeSpotLight createFeSpotLight() {
+        return new FeSpotLight(this.document);
+    }
+
+    /**
+     * feTile要素
+     * @return feTile要素の生成
+     */
+    public FeTile createFeTile() {
+        return new FeTile(this.document);
+    }
+
+    /**
+     * feTurbulence要素
+     * @return feTurbulence要素の生成
+     */
+    public FeTurbulence createFeTurbulence() {
+        return new FeTurbulence(this.document);
+    }
+
+    /**
      * filter要素の生成
      * @return filter要素
      */
@@ -457,6 +649,14 @@ public class SVGDocument {
      */
     public Use createUse() {
         return new Use(this.document);
+    }
+
+    /**
+     * view要素の生成
+     * @return view要素
+     */
+    public View createView() {
+        return new View(this.document);
     }
 
     /**

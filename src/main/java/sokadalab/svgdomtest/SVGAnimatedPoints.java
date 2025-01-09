@@ -1,6 +1,7 @@
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
+import java.util.regex.Pattern;
 
 /**
  * Polygon、Polylineの基本となるクラス<br>
@@ -31,25 +32,28 @@ public class SVGAnimatedPoints extends SVGElement {
         this.points.clear();
         String x = "";
         String y = "";
+        Pattern pcomma = Pattern.compile(",");
+        Pattern pspace = Pattern.compile(" ");
         while (points != "") {
-            String str = points.substring(0, 1);
-            switch(str) {
-                case " " : 
-                    break;
-                case "," :
-                    break;
-                default :
-                    if (x == "") {
-                        x = str;
-                    } else {
-                        y = str;
-                    }
-                    break;
-            }
-            if (x != "" && y != "") {
+            System.out.println("points = " + points);
+            System.out.println("x = " + x);
+            System.out.println("y = " + y);
+            String[] str1 = pcomma.split(points, 2);
+            String[] str2 = pspace.split(str1[0], 2);
+            if (x == "") {
+                x = str2[0];
+            } else if (y == "") {
+                y = str2[0];
+            } else {
                 this.points.appendItem(x, y);
+                System.out.println("points = " + this.points.getAllItem());
+                break;
             }
-            points = points.substring(1);
+            if (str2.length > 1) {
+                points = str2[str2.length - 1];
+            } else if (str1.length > 1) {
+                points = str1[str1.length - 1];
+            }
         }
         super.setAttribute("points", this.points.getAllItem());
     }
