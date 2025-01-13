@@ -49,7 +49,7 @@ public class SVGPointList extends ArrayList {
         SVGPoint point = new SVGPoint();
         for (int i = 0; i < this.list.size(); i++) {
             point = getItem(i);
-            result = result + String.valueOf(point.x) + " " + String.valueOf(point.y) + " ";
+            result = result + String.valueOf(point.getX()) + " " + String.valueOf(point.getY()) + " ";
         }
         return result;
     }
@@ -99,15 +99,15 @@ public class SVGPointList extends ArrayList {
     }
     public void appendItem(float x, float y) {
         SVGPoint newItem = new SVGPoint();
-        newItem.x = x;
-        newItem.y = y;
+        newItem.setX(x);
+        newItem.setY(y);
         this.list.add(newItem);
         this.numberOfItems += 1;
     }
     public void appendItem(String x, String y) {
         SVGPoint newItem = new SVGPoint();
-        newItem.x = Float.parseFloat(x);
-        newItem.y = Float.parseFloat(y);
+        newItem.setX(Float.parseFloat(x));
+        newItem.setY(Float.parseFloat(y));
         this.list.add(newItem);
         this.numberOfItems += 1;
     }

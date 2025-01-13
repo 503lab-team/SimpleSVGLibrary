@@ -9,6 +9,7 @@ import org.w3c.dom.Document;
 public class TextContentElement extends SVGLangSpace {
     private String fontFamily;
     private float fontSize;
+    private String fontWeight;
     private String fill;
     private String stroke;
     private String stroke_width;
@@ -36,6 +37,14 @@ public class TextContentElement extends SVGLangSpace {
      */
     public float getFontSize() {
         return this.fontSize;
+    }
+
+    /**
+     * 属性font-weightの取得
+     * @return 属性font-weight
+     */
+    public String getFontWeight() {
+        return this.fontWeight;
     }
 
     /**
@@ -86,6 +95,15 @@ public class TextContentElement extends SVGLangSpace {
     public void setFontSize(int size) {
         this.fontSize = size;
         super.setAttribute("font-size", String.valueOf(this.fontSize));
+    }
+
+    /**
+     * 属性font-weightのセット
+     * @param weight 属性font-weightに与える値
+     */
+    public void setFontWeight(String weight) {
+        this.fontWeight = weight;
+        super.setAttribute("font-weight", this.fontWeight);
     }
 
     /**

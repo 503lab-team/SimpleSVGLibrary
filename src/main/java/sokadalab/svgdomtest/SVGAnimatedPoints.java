@@ -1,14 +1,13 @@
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
-import java.util.regex.Pattern;
 
 /**
  * Polygon、Polylineの基本となるクラス<br>
  * https://www.w3.org/TR/SVG11/shapes.html#InterfaceSVGAnimatedPoints
  */
 public class SVGAnimatedPoints extends SVGElement {
-    public SVGPointList points = new SVGPointList();
+    private SVGPointList points = new SVGPointList();
 
     /**
      * コンストラクタ
@@ -20,7 +19,16 @@ public class SVGAnimatedPoints extends SVGElement {
     }
 
     /**
-     * フィールドpointsをすべて書き直す
+     * 属性pointsを取得
+     * @return 属性points
+     */
+    public SVGPointList getPoints() {
+        return this.points;
+    }
+
+    /**
+     * フィールドpointsを書き直す<br>
+     * 区切り文字は半角スペースで統一すること
      * @param points フィールドpointsに与える値
      */
     public void setPoints(SVGPointList points) {
@@ -31,28 +39,13 @@ public class SVGAnimatedPoints extends SVGElement {
     public void setPoints(String points) {
         this.points.clear();
         String x = "";
-        String y = "";
-        Pattern pcomma = Pattern.compile(",");
-        Pattern pspace = Pattern.compile(" ");
-        while (points != "") {
-            System.out.println("points = " + points);
-            System.out.println("x = " + x);
-            System.out.println("y = " + y);
-            String[] str1 = pcomma.split(points, 2);
-            String[] str2 = pspace.split(str1[0], 2);
+        String[] plist = points.split(" ");
+        for (int i = 0; i < plist.length; i++) {
             if (x == "") {
-                x = str2[0];
-            } else if (y == "") {
-                y = str2[0];
+                x = plist[i];
             } else {
-                this.points.appendItem(x, y);
-                System.out.println("points = " + this.points.getAllItem());
-                break;
-            }
-            if (str2.length > 1) {
-                points = str2[str2.length - 1];
-            } else if (str1.length > 1) {
-                points = str1[str1.length - 1];
+                this.points.appendItem(x, plist[i]);
+                x = "";
             }
         }
         super.setAttribute("points", this.points.getAllItem());

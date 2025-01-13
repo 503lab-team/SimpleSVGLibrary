@@ -1,7 +1,6 @@
 package sokadalab.svgdomtest;
 
 import org.w3c.dom.Document;
-import java.util.regex.Pattern;
 
 /**
  * glyph要素<br>
@@ -109,90 +108,64 @@ public class Glyph extends SVGElement {
     }
 
     /**
-     * 属性dの中身をすべてstrに書き直す
-     * @param str SVGPathSegに対応するアルファベットと数値リスト
+     * 属性dの中身をすべて書き直す<br>
+     * 区切り文字は半角スペースで統一すること
+     * @param d 属性dに与える値
      */
-    public void setD(String str) {
-        Pattern p = Pattern.compile("[Z,z,M,m,L,l,C,c,Q,q,A,a,H,h,V,v,S,s,T,t]");
-        while (str != "") {
-            switch (str.substring(0, 1)) {
-                case " " :
-                    str = str.substring(1);
-                case "," :
-                    str = str.substring(1);
-                default :
-                    String first = str.substring(0, 1); // 最初の1文字
-                    String second = str.substring(1);   // 残りの文字列
-                    String[] data = p.split(second, 2);
-                    appendD(first, data[0]);
-                    setD(data[1]);
-            }
-        }
-    }
-
-    /**
-     * 属性dの末尾に新しいデータを追加
-     * @param type SVGPathSegに対応するアルファベット
-     * @param data パスの数値リスト
-     */
-    public void appendD(String type, String data) {
+    public void setD(String d) {
+        int i;
+        String[] dlist = d.split(" ");      // 引数dを半角スペースで区切ったリスト
         SVGPathSeg newItem = new SVGPathSeg();
-        newItem.pathSegTypeAsLetter = type;
-        newItem.pathSegType = SVGPathSeg.letterToType(newItem.pathSegTypeAsLetter);
-        Pattern p = Pattern.compile("\\s");    // 空白文字 (できればカンマ区切りも追加したい)
-        while(data == "") {
-            switch (data.substring(0, 1)) {
-                case " " :
-                    data = data.substring(1);
-                case "," :
-                    data = data.substring(1);
-                default :
-                    String[] first = p.split(data, 2);
-                    newItem.data.add(Float.parseFloat(first[0]));
-                    data = first[1];
+        for (i = 0; i < dlist.length; i++) {
+            if (SVGPathSeg.letterToType(dlist[i]) != SVGPathSeg.PATHSEG_UNKNOWN) {  // コマンドの場合
+                if (newItem.getPathSegType() != SVGPathSeg.PATHSEG_UNKNOWN) {
+                    this.d.appendItem(newItem);
+                    newItem = new SVGPathSeg();
+                }
+                newItem.setType(dlist[i]);
+            } else {                                    // 数値の場合
+                newItem.appendData(dlist[i]);
             }
         }
         this.d.appendItem(newItem);
         super.setAttribute("d", this.d.getAllItem());
     }
+    public void setD(SVGPathSegList d) {
+        this.d = d;
+        super.setAttribute("d", this.d.getAllItem());        
+    }
+
+    /**
+     * 属性dの末尾に新しいデータを追加する<br>
+     * @param type コマンド部分
+     * @param data 数値データ部分
+     */
     public void appendD(short type, String data) {
         SVGPathSeg newItem = new SVGPathSeg();
-        newItem.pathSegTypeAsLetter = SVGPathSeg.typeToLetter(type);
-        newItem.pathSegType = SVGPathSeg.letterToType(newItem.pathSegTypeAsLetter);
-        Pattern p = Pattern.compile("\\s");    // 空白文字 (できればカンマ区切りも追加したい)
-        while(data == "") {
-            switch (data.substring(0, 1)) {
-                case " " :
-                    data = data.substring(1);
-                case "," :
-                    data = data.substring(1);
-                default :
-                    String[] first = p.split(data, 2);
-                    newItem.data.add(Float.parseFloat(first[0]));
-                    data = first[1];
-            }
+        newItem.setType(type);
+        String[] datalist = data.split(" ");
+        for (int i = 0; i < datalist.length; i++) {
+            newItem.appendData(datalist[i]);
         }
         this.d.appendItem(newItem);        
         super.setAttribute("d", this.d.getAllItem());
     }
     public void appendD(String str) {
         SVGPathSeg newItem = new SVGPathSeg();
-        newItem.pathSegTypeAsLetter = str.substring(0, 1);
-        newItem.pathSegType = SVGPathSeg.letterToType(newItem.pathSegTypeAsLetter);
-        Pattern p = Pattern.compile("\\s");    // 空白文字 (できればカンマ区切りも追加したい)
-        String data = str.substring(1);
-        while (str == "") {
-            switch (data.substring(0, 1)) {
-                case " " :
-                    data = data.substring(1);
-                case "," :
-                    data = data.substring(1);
-                default :
-                    String[] first = p.split(data, 2);
-                    newItem.data.add(Float.parseFloat(first[0]));
-                    data = first[1];
+        String[] strlist = str.split(" ");  // 引数dを半角スペースで区切ったリスト
+        for (int i = 0; i < strlist.length; i++) {
+            if (SVGPathSeg.letterToType(strlist[i]) != SVGPathSeg.PATHSEG_UNKNOWN) {  // コマンドの場合
+                newItem.setType(strlist[i]);
+            } else {                                    // 数値の場合
+                newItem.appendData(strlist[i]);
             }
         }
+        this.d.appendItem(newItem);
+        super.setAttribute("d", this.d.getAllItem());
+    }
+    public void appendD(short type) {
+        SVGPathSeg newItem = new SVGPathSeg();
+        newItem.setType(type);
         this.d.appendItem(newItem);
         super.setAttribute("d", this.d.getAllItem());
     }

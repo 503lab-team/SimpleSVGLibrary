@@ -31,9 +31,80 @@ public class SVGPathSeg extends ArrayList {
     public final static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS = 18;
     public final static short PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL = 19;
 
-    public short pathSegType;                          // アルファベット1文字を表す数値
-    public String pathSegTypeAsLetter;                 // アルファベット1文字
-    public List<Float> data = new ArrayList<Float>();  // パスの数値リスト
+    private short pathSegType = PATHSEG_UNKNOWN;        // アルファベット1文字を表す数値
+    private String pathSegTypeAsLetter = "";            // アルファベット1文字
+    private List<Float> data = new ArrayList<Float>();  // パスの数値リスト
+
+    /**
+     * フィールドpathSegTypeの取得
+     * @return フィールドpathSegType
+     */
+    public short getPathSegType() {
+        return this.pathSegType;
+    }
+
+    /**
+     * フィールドpathSegTypeAsLetterの取得
+     * @return フィールドpathSegTypeAsLetter
+     */
+    public String getPathSegTypeAsLetter() {
+        return this.pathSegTypeAsLetter;
+    }
+
+    /**
+     * フィールドdataの取得
+     * @return フィールドdata
+     */
+    public List<Float> getData() {
+        return this.data;
+    }
+
+    /**
+     * フィールドpathSegTypeとフィールドpathSegTypeAsLetterのセット
+     * @param type フィールドpathSegTypeおよびpathSegTypeAsLetterに対応する値
+     */
+    public void setType(short type) {
+        this.pathSegType = type;
+        this.pathSegTypeAsLetter = typeToLetter(this.pathSegType);
+    }
+    public void setType(String type) {
+        this.pathSegTypeAsLetter = type;
+        this.pathSegType = letterToType(this.pathSegTypeAsLetter);
+    }
+
+    /**
+     * フィールドdataのセット<br>
+     * 半角スペースで区切ると想定
+     * @param d フィールドdataに与える値
+     */
+    public void setData(List<Float> d) {
+        this.data = d;
+    }
+    public void setData(String d) {
+        this.data = new ArrayList<Float>();
+        String[] strlist = d.split(" ");
+        for (int i = 0; i < strlist.length; i++) {
+            this.data.add(Float.parseFloat(strlist[i]));
+        }
+    }
+
+    /**
+     * フィールドdataの末尾に追加
+     * @param d 末尾に追加する値
+     */
+    public void appendData(String d) {
+        this.data.addLast(Float.parseFloat(d));
+    }
+    public void appendData(float d) {
+        this.data.addLast(d);
+    }
+
+    @Override
+    public void clear() {
+        this.data = new ArrayList<Float>();
+        this.pathSegType = PATHSEG_UNKNOWN;
+        this.pathSegTypeAsLetter = "";
+    }
 
     /**
      * フィールドpathSegTypeが表す数値から文字列への変換
@@ -135,18 +206,5 @@ public class SVGPathSeg extends ArrayList {
             default :
                 return SVGPathSeg.PATHSEG_UNKNOWN;
         }
-    }
-
-    /**
-     * フィールドpathSegTypeとフィールドpathSegTypeAsLetterのセット
-     * @param type フィールドpathSegTypeおよびpathSegTypeAsLetterに対応する値
-     */
-    public void setType(short type) {
-        this.pathSegType = type;
-        this.pathSegTypeAsLetter = typeToLetter(this.pathSegType);
-    }
-    public void setType(String type) {
-        this.pathSegTypeAsLetter = type;
-        this.pathSegType = letterToType(this.pathSegTypeAsLetter);
     }
 }

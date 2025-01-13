@@ -159,7 +159,8 @@ public class TextPositioningElement extends TextContentElement {
     }
 
     /**
-     * 属性rotateのセット
+     * 属性rotateのセット<br>
+     * SVGNumberList以外で複数の数値のセットはできない
      * @param rotate 属性rotateに与える値
      */
     public void setRotate(String rotate) {

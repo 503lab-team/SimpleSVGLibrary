@@ -7,6 +7,28 @@ package sokadalab.svgdomtest;
  * 
  */
 public class SVGPoint {
-    public float x;
-    public float y;
+    private float x;
+    private float y;
+    
+    public float getX() {
+        return this.x;
+    }
+
+    public float getY() {
+        return this.y;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+    public void setX(String x) {
+        this.x = Float.parseFloat(x);
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+    public void setY(String y) {
+        this.y = Float.parseFloat(y);
+    }
 }

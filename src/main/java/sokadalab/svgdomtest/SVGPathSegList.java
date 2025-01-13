@@ -8,7 +8,7 @@ import java.util.List;
  * https://www.w3.org/TR/SVG11/paths.html#InterfaceSVGPathSegList
  */
 public class SVGPathSegList extends ArrayList {
-    public List<SVGPathSeg> list = new ArrayList<SVGPathSeg>();
+    private List<SVGPathSeg> list = new ArrayList<SVGPathSeg>();
     private long numberOfItems = 0;
 
     @Override
@@ -49,13 +49,11 @@ public class SVGPathSegList extends ArrayList {
         SVGPathSeg pathSeg = new SVGPathSeg();
         for (int i = 0; i < this.list.size(); i++) {
             pathSeg = getItem(i);
-            result = result + pathSeg.pathSegTypeAsLetter;
-            for (int j = 0; j < pathSeg.size(); j++) {
-                result = " " + result + pathSeg.data.get(i);
+            result = result + pathSeg.getPathSegTypeAsLetter() + " ";
+            for (int j = 0; j < pathSeg.getData().size(); j++) {
+                result = result + String.valueOf(pathSeg.getData().get(j)) + " ";
             }
-            if (i + 1 < this.list.size()) {
-                result = result + " ";
-            }
+            result = result + " ";
         }
         return result;
     }
@@ -103,13 +101,14 @@ public class SVGPathSegList extends ArrayList {
         this.list.add(newItem);
         this.numberOfItems += 1;
     }
+
     /**
      * 末尾にパスのコマンド部分のみ追加
      * @param pathSegTypeAsLetter パスのコマンド部分
      */
-    public void appendItem(String pathSegTypeAsLetter) {
+    public void appendCommand(String pathSegTypeAsLetter) {
         SVGPathSeg newItem = new SVGPathSeg();
-        newItem.pathSegTypeAsLetter = pathSegTypeAsLetter;
+        newItem.setType(pathSegTypeAsLetter);
         this.list.add(newItem);
         this.numberOfItems += 1;
     }

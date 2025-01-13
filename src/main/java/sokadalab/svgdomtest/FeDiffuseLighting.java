@@ -88,11 +88,11 @@ public class FeDiffuseLighting extends FeStandardAttributes {
      * 属性diffuseConstantのセット
      * @param dc 属性diffuseConstantに与える値
      */
-    public void setSpecularConstant(float dc) {
+    public void setDiffuseConstant(float dc) {
         this.diffuseConstant = dc;
         super.setAttribute("diffuseConstant", String.valueOf(this.diffuseConstant));
     }
-    public void setSpecularConstant(String dc) {
+    public void setDiffuseConstant(String dc) {
         this.diffuseConstant = Float.parseFloat(dc);
         super.setAttribute("diffuseConstant", String.valueOf(this.diffuseConstant));
     }

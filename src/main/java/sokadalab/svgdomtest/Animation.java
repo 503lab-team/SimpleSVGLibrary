@@ -109,14 +109,6 @@ public class Animation extends SVGElement {
     }
 
     /**
-     * 属性hrefのセット
-     * @param href 属性hrefに与える値
-     */
-    public void setHref(String href) {
-        super.setAttribute("href", href);
-    }
-
-    /**
      * 属性attributeNameのセット
      * @param name 属性attributeNameに与える値
      */

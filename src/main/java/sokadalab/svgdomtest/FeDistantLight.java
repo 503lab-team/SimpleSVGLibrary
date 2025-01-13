@@ -3,7 +3,7 @@ package sokadalab.svgdomtest;
 import org.w3c.dom.Document;
 
 /**
- * feGistantLight要素<br>
+ * feDistantLight要素<br>
  * https://www.w3.org/TR/SVG11/filters.html#feDistantLightElement<br>
  * https://www.w3.org/TR/SVG11/filters.html#InterfaceSVGFEDistantLightElement
  */
